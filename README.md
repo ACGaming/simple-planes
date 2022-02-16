@@ -1,4 +1,4 @@
-# simple-planes
-Planes mod for minecraft forge.
+# simple-planes-tfc
+Adds flying planes and helicopters - for TFC!
 
-https://www.curseforge.com/minecraft/mc-mods/simple-planes
+https://www.curseforge.com/minecraft/mc-mods/simple-planes-tfc
