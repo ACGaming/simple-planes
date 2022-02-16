@@ -8,7 +8,6 @@ import xyz.przemyk.simpleplanes.setup.SimplePlanesUpgrades;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 
 public class DragonUpgrade extends Upgrade {
-
     public DragonUpgrade(PlaneEntity planeEntity) {
         super(SimplePlanesUpgrades.DRAGON, planeEntity);
     }

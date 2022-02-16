@@ -1,11 +1,8 @@
 package xyz.przemyk.simpleplanes.upgrades.sprayer;
-// Made with Blockbench 3.5.2
-// Exported for Minecraft version 1.15
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class SprayerModel extends ModelBase {
@@ -17,7 +14,6 @@ public class SprayerModel extends ModelBase {
     private final ModelRenderer spray_right;
 
     public SprayerModel() {
-        textureWidth = 256;
         textureWidth = 64;
         textureHeight = 64;
 

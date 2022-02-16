@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "group": "simpleplanes:large_plane",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "IPB",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "tfc:metal/ingot/wrought_iron"
+    },
+    "P": {
+      "item": "simpleplanes:tfc_chestnut_plane"
+    },
+    "B": {
+      "item": "tfc:wood/boat/chestnut"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_chestnut_large_plane"
+  }
+}

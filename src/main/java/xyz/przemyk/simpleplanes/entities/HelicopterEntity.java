@@ -9,12 +9,11 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-
-import xyz.przemyk.simpleplanes.math.MathUtil;
-import xyz.przemyk.simpleplanes.PlaneMaterial;
-import xyz.przemyk.simpleplanes.math.Quaternion;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
+import xyz.przemyk.simpleplanes.math.MathUtil;
+import xyz.przemyk.simpleplanes.math.Quaternion;
 import xyz.przemyk.simpleplanes.math.Vector3f;
+import xyz.przemyk.simpleplanes.setup.PlaneMaterial;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 import xyz.przemyk.simpleplanes.upgrades.UpgradeType;
 
@@ -70,7 +69,6 @@ public class HelicopterEntity extends LargePlaneEntity {
         if (world.isRemote && Minecraft.getMinecraft().player == passenger) {
             (Minecraft.getMinecraft()).ingameGUI.setOverlayMessage(new TextComponentString("sprint to take off"), false);
         }
-
     }
 
     @Override
@@ -92,7 +90,6 @@ public class HelicopterEntity extends LargePlaneEntity {
             rotationPitch = MathUtil.lerpAngle(0.2f, rotationPitch, 0);
             double drag = 0.999;
             setMotion(getMotion().scale(drag));
-
         }
     }
 
@@ -115,7 +112,6 @@ public class HelicopterEntity extends LargePlaneEntity {
 
     @Override
     protected Quaternion tickRotateMotion(Vars vars, Quaternion q, Vec3d motion) {
-
         //        float yaw = MathUtil.getYaw(motion);
         //        double speed = getMotion().length();
         //
@@ -127,9 +123,7 @@ public class HelicopterEntity extends LargePlaneEntity {
 
     @Override
     protected void tickRotation(Vars vars) {
-
         int yawdiff = 2;
-
         double turn = vars.moveStrafing > 0 ? yawdiff : vars.moveStrafing == 0 ? 0 : -yawdiff;
         rotationRoll = 0;
         rotationYaw -= turn;

@@ -8,11 +8,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
 import xyz.przemyk.simpleplanes.entities.HelicopterEntity;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
@@ -38,12 +34,12 @@ public class PlaneGui extends Gui {
                     planeEntity.mountmassage = false;
                     if (planeEntity instanceof HelicopterEntity) {
                         Minecraft.getMinecraft().ingameGUI
-                            .setOverlayMessage(new TextComponentTranslation("helicopter.onboard", mc.gameSettings.keyBindSneak.getDisplayName(),
-                                ClientProxy.keyBind.getDisplayName()), false);
+                                .setOverlayMessage(new TextComponentTranslation("helicopter.onboard", mc.gameSettings.keyBindSneak.getDisplayName(),
+                                        ClientProxy.keyBind.getDisplayName()), false);
                     } else {
                         Minecraft.getMinecraft().ingameGUI
-                            .setOverlayMessage(new TextComponentTranslation("plane.onboard", mc.gameSettings.keyBindSneak.getDisplayName(),
-                                ClientProxy.keyBind.getDisplayName()), false);
+                                .setOverlayMessage(new TextComponentTranslation("plane.onboard", mc.gameSettings.keyBindSneak.getDisplayName(),
+                                        ClientProxy.keyBind.getDisplayName()), false);
                     }
 
                 }
@@ -114,9 +110,6 @@ public class PlaneGui extends Gui {
                     right_height += 10;
                 }
             }
-
         }
     }
-
 }
-

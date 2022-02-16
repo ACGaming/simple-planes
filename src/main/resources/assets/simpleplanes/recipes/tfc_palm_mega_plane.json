@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "simpleplanes:mega_plane",
+  "pattern": [
+    "#OO",
+    "#XO",
+    "#RR"
+  ],
+  "key": {
+    "#": {
+      "item": "simpleplanes:propeller"
+    },
+    "O": {
+      "item": "tfc:wood/planks/palm"
+    },
+    "X": {
+      "item": "simpleplanes:tfc_palm_large_plane"
+    },
+    "R": {
+      "item": "tfc:wood/boat/palm"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_palm_mega_plane",
+    "count": 1
+  }
+}

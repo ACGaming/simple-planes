@@ -1,6 +1,4 @@
 package xyz.przemyk.simpleplanes.upgrades.folding;
-// Made with Blockbench 3.5.2
-// Exported for Minecraft version 1.15
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -21,12 +19,11 @@ public class FoldingModel extends ModelBase {
         this.rightWing.addBox(0, 0, 0, 10, 20, 2, 1);
     }
 
-
     @Override
     public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         GlStateManager.rotate(MathUtil.rotationDegreesX(90).convert());
-        GlStateManager.translate(0,0.3,-0.2);
-        rightWing.render(scale*0.5f);
-        leftWing.render(scale*0.5f);
+        GlStateManager.translate(0, 0.3, -0.2);
+        rightWing.render(scale * 0.5f);
+        leftWing.render(scale * 0.5f);
     }
 }

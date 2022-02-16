@@ -1,19 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "III",
-        "IFI",
-        "III"
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:coal"
-        },
-        "F": {
-            "item": "simpleplanes:furnace_engine"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CFC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "gemCoal"
     },
-    "result": {
-        "item": "simpleplanes:junk_engine"
+    "F": {
+      "item": "simpleplanes:furnace_engine"
     }
+  },
+  "result": {
+    "item": "simpleplanes:junk_engine"
+  }
 }

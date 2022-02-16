@@ -28,7 +28,7 @@ public class TNTUpgrade extends Upgrade {
         }
         if (itemStack.getItem() == Items.FLINT_AND_STEEL) {
             EntityTNTPrimed tntEntity = new EntityTNTPrimed(planeEntity.world, planeEntity.getPosX() - 1.0, planeEntity.getPosY(), planeEntity.getPosZ(),
-                player);
+                    player);
             Vec3d motion = planeEntity.getMotion();
             tntEntity.motionX = motion.x;
             tntEntity.motionY = motion.y;

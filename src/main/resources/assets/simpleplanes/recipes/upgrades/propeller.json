@@ -1,16 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "I I",
-        " I ",
-        "I I"
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:iron_ingot"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "R R",
+    " I ",
+    "R R"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotWroughtIron"
     },
-    "result": {
-        "item": "simpleplanes:propeller"
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "rodWroughtIron"
     }
+  },
+  "result": {
+    "item": "simpleplanes:propeller"
+  }
 }

@@ -3,7 +3,6 @@ package xyz.przemyk.simpleplanes.render;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import xyz.przemyk.simpleplanes.entities.LargePlaneEntity;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class LargeFurnacePlaneModel extends ModelBase {

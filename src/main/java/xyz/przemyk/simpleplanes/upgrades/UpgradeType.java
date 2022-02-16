@@ -13,9 +13,9 @@ import java.util.function.Function;
 
 public class UpgradeType implements IForgeRegistryEntry<UpgradeType> {
 
-    private final Item upgradeItem;
     public final Function<PlaneEntity, Upgrade> instanceSupplier;
     public final boolean occupyBackSeat;
+    private final Item upgradeItem;
     private ResourceLocation Id;
 
     /**
@@ -41,7 +41,7 @@ public class UpgradeType implements IForgeRegistryEntry<UpgradeType> {
     }
 
     public ItemStack getDrops() {
-        return upgradeItem != null ?new ItemStack(upgradeItem) : ItemStack.EMPTY;
+        return upgradeItem != null ? new ItemStack(upgradeItem) : ItemStack.EMPTY;
     }
 
     public boolean isPlaneApplicable(PlaneEntity planeEntity) {
@@ -64,19 +64,18 @@ public class UpgradeType implements IForgeRegistryEntry<UpgradeType> {
         return this.Id;
     }
 
+    public ResourceLocation getRegistryName() {
+        return this.Id;
+    }
+
     @Override
     public UpgradeType setRegistryName(ResourceLocation name) {
         this.Id = name;
         return this;
     }
 
-    public ResourceLocation getRegistryName() {
-        return this.Id;
-    }
-
     @Override
     public Class<UpgradeType> getRegistryType() {
         return UpgradeType.class;
     }
-
 }

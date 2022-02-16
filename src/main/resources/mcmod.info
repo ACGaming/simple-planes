@@ -1,16 +1,20 @@
 [
-{
-  "modid": "simpleplanes",
-  "name": "simpleplanes",
-  "description": "Adds flying planes",
-  "version": "1.12.2-3.0.1.7",
-  "mcversion": "1.12.2",
-  "url": "https://przemyk.xyz/mods/simple-planes/index.html",
-  "updateUrl": "",
-  "authorList": ["adoxentor","przemyk"],
-  "credits": "",
-  "logoFile": "assets/simpleplanes/logo.png",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "simpleplanes",
+    "name": "Simple Planes for TFC",
+    "description": "Adds flying planes",
+    "version": "3.0.1.8",
+    "mcversion": "1.12.2",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "ACGaming",
+      "adoxentor",
+      "przemyk"
+    ],
+    "credits": "",
+    "logoFile": "assets/simpleplanes/logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]

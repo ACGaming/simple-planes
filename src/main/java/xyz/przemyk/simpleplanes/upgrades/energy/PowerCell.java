@@ -8,7 +8,7 @@
 //import net.minecraft.item.Items;
 //import net.minecraft.nbt.NBTTagCompound;
 //import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-//import xyz.przemyk.simpleplanes.Config;
+//import xyz.przemyk.simpleplanes.SimplePlanesConfig;
 //import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 //import xyz.przemyk.simpleplanes.render.EngineModel;
 //import xyz.przemyk.simpleplanes.setup.SimplePlanesUpgrades;
@@ -23,7 +23,7 @@
 //    public boolean onItemRightClick(PlayerInteractEvent.RightClickItem event) {
 //        EntityPlayer player = event.getPlayer();
 //        ItemStack itemStack = event.getItemStack();
-//        if (!player.world.isRemote &&planeEntity.getFuel() < Config.INSTANCE.FLY_TICKS_PER_COAL.get() / 4) {
+//        if (!player.world.isRemote &&planeEntity.getFuel() < SimplePlanesConfig.INSTANCE.FLY_TICKS_PER_COAL.get() / 4) {
 //            //func_230235_a_ - contains
 //            if ((itemStack.getItem() == Items.REDSTONE)) {
 //                planeEntity.addFuelMaxed();
@@ -42,13 +42,13 @@
 //    @Override
 //    public void deserializeNBT(NBTTagCompound nbt) {
 //        super.deserializeNBT(nbt);
-//        planeEntity.setMaxFuel(Config.INSTANCE.ENERGY_MAX_FUEL.get());
+//        planeEntity.setMaxFuel(SimplePlanesConfig.INSTANCE.ENERGY_MAX_FUEL.get());
 //    }
 //
 //    @Override
 //    public void onApply(ItemStack itemStack, EntityPlayer playerEntity) {
 //        super.onApply(itemStack, playerEntity);
-//        planeEntity.setMaxFuel(Config.INSTANCE.ENERGY_MAX_FUEL.get());
+//        planeEntity.setMaxFuel(SimplePlanesConfig.INSTANCE.ENERGY_MAX_FUEL.get());
 //    }
 //
 //}

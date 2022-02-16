@@ -1,7 +1,4 @@
-package xyz.przemyk.simpleplanes.render;// Made with Blockbench 3.6.3
-// Exported for Minecraft version 1.15
-// Paste this class into your mod and generate all required imports
-
+package xyz.przemyk.simpleplanes.render;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -42,9 +39,9 @@ public class HelicopterPropellerModel extends PropellerModel {
         PlaneEntity entity = (PlaneEntity) entityIn;
         if (entity.isPowered()) {
             bone_propeller.rotateAngleY =
-                ((entity.ticksExisted + limbSwing) % TICKS_PER_PROPELLER_ROTATION) / (float) (TICKS_PER_PROPELLER_ROTATION / 10. * Math.PI);
+                    ((entity.ticksExisted + limbSwing) % TICKS_PER_PROPELLER_ROTATION) / (float) (TICKS_PER_PROPELLER_ROTATION / 10. * Math.PI);
             bone_propeller2.rotateAngleX =
-                ((entity.ticksExisted + limbSwing) % TICKS_PER_PROPELLER_ROTATION) / (float) (TICKS_PER_PROPELLER_ROTATION / 10. * Math.PI);
+                    ((entity.ticksExisted + limbSwing) % TICKS_PER_PROPELLER_ROTATION) / (float) (TICKS_PER_PROPELLER_ROTATION / 10. * Math.PI);
         } else {
             bone_propeller.rotateAngleY = 0;
             bone_propeller2.rotateAngleX = 0;
@@ -61,5 +58,4 @@ public class HelicopterPropellerModel extends PropellerModel {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
-
 }

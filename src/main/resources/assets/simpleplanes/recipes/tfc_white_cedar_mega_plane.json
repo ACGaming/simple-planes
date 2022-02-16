@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "simpleplanes:mega_plane",
+  "pattern": [
+    "#OO",
+    "#XO",
+    "#RR"
+  ],
+  "key": {
+    "#": {
+      "item": "simpleplanes:propeller"
+    },
+    "O": {
+      "item": "tfc:wood/planks/white_cedar"
+    },
+    "X": {
+      "item": "simpleplanes:tfc_white_cedar_large_plane"
+    },
+    "R": {
+      "item": "tfc:wood/boat/white_cedar"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_white_cedar_mega_plane",
+    "count": 1
+  }
+}

@@ -1,12 +1,16 @@
 {
-    "plane_start": {
-        "category": "ambient",
-        "subtitle": "simpleplanes.subtitle.plane_start",
-        "sounds": [ "simpleplanes:plane_start" ]
-    },
-    "plane_loop": {
-        "category": "ambient",
-        "subtitle": "simpleplanes.subtitle.plane_loop",
-        "sounds": [ "simpleplanes:plane_loop" ]
-    }
+  "plane_start": {
+    "category": "ambient",
+    "subtitle": "simpleplanes.subtitle.plane_start",
+    "sounds": [
+      "simpleplanes:plane_start"
+    ]
+  },
+  "plane_loop": {
+    "category": "ambient",
+    "subtitle": "simpleplanes.subtitle.plane_loop",
+    "sounds": [
+      "simpleplanes:plane_loop"
+    ]
+  }
 }

@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "group": "simpleplanes:large_plane",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "IPB",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "tfc:metal/ingot/wrought_iron"
+    },
+    "P": {
+      "item": "simpleplanes:tfc_white_cedar_plane"
+    },
+    "B": {
+      "item": "tfc:wood/boat/white_cedar"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_white_cedar_large_plane"
+  }
+}

@@ -1,7 +1,7 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url='https://dist.creeper.host/Sponge/maven' }
+        maven { url='https://maven.minecraftforge.net' }
+        maven { url='https://repo.spongepowered.org/maven' }
 
         jcenter()
         mavenCentral()
@@ -9,7 +9,6 @@ buildscript {
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-
     }
 
 }
@@ -20,7 +19,7 @@ apply plugin: 'eclipse'
 
 version = "${minecraft_version}-${mod_version}"
 group = 'xyz.przemyk.simpleplanes'
-archivesBaseName = 'simpleplanes'
+archivesBaseName = 'SimplePlanesTFC'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -52,17 +51,21 @@ minecraft {
 repositories {
     maven {
         name = "jei"
-        url = "https://dvs1.progwml6.com/files/maven"
+        url = 'https://dvs1.progwml6.com/files/maven'
     }
     maven {
-        url = 'https://dist.creeper.host/Sponge/maven'
+        url = 'https://repo.spongepowered.org/maven'
+    }
+	maven {
+        name = "Cursemaven"
+        url = "https://www.cursemaven.com/"
     }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:1.12.2-${forge_version}"
-//    compile 'org.spongepowered:mixin:0.8-SNAPSHOT'
-
+	implementation fg.deobf('curse.maven:tfcraft-302973:3406948')
+	//compile 'org.spongepowered:mixin:0.8-SNAPSHOT'
 }
 
 processResources {

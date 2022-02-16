@@ -1,6 +1,4 @@
 package xyz.przemyk.simpleplanes.render;
-// Made with Blockbench 3.5.2
-// Exported for Minecraft version 1.15
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -11,8 +9,8 @@ import xyz.przemyk.simpleplanes.entities.MegaPlaneEntity;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 
 public class EngineModel extends ModelBase {
-    private final ModelRenderer Body;
     static EngineModel INSTANCE = new EngineModel();
+    private final ModelRenderer Body;
 
     public EngineModel() {
         textureWidth = 64;
@@ -21,12 +19,6 @@ public class EngineModel extends ModelBase {
         Body = new ModelRenderer(this);
         Body.setRotationPoint(0.0F, 17.0F, 0.0F);
         Body.setTextureOffset(0, 0).addBox(-8, -16, 3, 16, 16, 16, -1);
-    }
-
-    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
     }
 
     public static void renderEngine(PlaneEntity planeEntity, float partialTicks, float scale) {
@@ -47,6 +39,12 @@ public class EngineModel extends ModelBase {
 //        renderBlock(planeEntity, planeEntity.getEntityWorld(), state);
 
         INSTANCE.render(planeEntity, 0, 0, 0, 0, 0, scale);
+    }
+
+    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.rotateAngleX = x;
+        modelRenderer.rotateAngleY = y;
+        modelRenderer.rotateAngleZ = z;
     }
 
     @Override

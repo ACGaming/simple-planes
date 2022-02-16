@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "simpleplanes:item/tfc_aspen_mega_plane"
+  }
+}

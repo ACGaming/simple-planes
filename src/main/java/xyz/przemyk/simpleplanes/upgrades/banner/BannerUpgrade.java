@@ -7,8 +7,8 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import xyz.przemyk.simpleplanes.math.MathUtil;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
+import xyz.przemyk.simpleplanes.math.MathUtil;
 import xyz.przemyk.simpleplanes.setup.SimplePlanesUpgrades;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 
@@ -19,7 +19,7 @@ public class BannerUpgrade extends Upgrade {
 
     public BannerUpgrade(PlaneEntity planeEntity) {
         super(SimplePlanesUpgrades.BANNER, planeEntity);
-        banner =new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("banner")));
+        banner = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("banner")));
         prevRotation = planeEntity.prevRotationYaw;
         rotation = planeEntity.prevRotationYaw;
     }
@@ -42,7 +42,7 @@ public class BannerUpgrade extends Upgrade {
     public void deserializeNBT(NBTTagCompound nbt) {
         NBTBase banner = nbt.getTag("banner");
         if (banner instanceof NBTTagCompound)
-            this.banner =new ItemStack((NBTTagCompound) banner);
+            this.banner = new ItemStack((NBTTagCompound) banner);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class BannerUpgrade extends Upgrade {
 
     @Override
     public void render(float partialticks, float scale) {
-        BannerModel.renderBanner(this,partialticks,banner);
+        BannerModel.renderBanner(this, partialticks, banner);
     }
 
     @Override

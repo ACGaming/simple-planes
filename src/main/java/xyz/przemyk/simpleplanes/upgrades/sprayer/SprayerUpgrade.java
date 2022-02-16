@@ -33,13 +33,12 @@ import java.util.List;
 public class SprayerUpgrade extends Upgrade {
     public static final ResourceLocation TEXTURE = new ResourceLocation(SimplePlanesMod.MODID, "textures/plane_upgrades/sprayer.png");
     public static final AxisAlignedBB AFFECT_ENTITIES = new AxisAlignedBB(-3, -3, -3, 3, 0, 3);
+    private int fluid = 0;
+    private Potion effect = null;
 
     public SprayerUpgrade(PlaneEntity planeEntity) {
         super(SimplePlanesUpgrades.SPRAYER, planeEntity);
     }
-
-    private int fluid = 0;
-    private Potion effect = null;
 
     @SuppressWarnings("ConstantConditions")
     @Override
@@ -82,46 +81,45 @@ public class SprayerUpgrade extends Upgrade {
                 int j2 = l1 >> 8 & 255;
                 int j1 = l1 & 255;
                 planeEntity.world.spawnParticle(EnumParticleTypes.SPELL,
-                    planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
-                    planeEntity.getPosY() + 0.5,
-                    planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
-                    ((float) i2 / 255.0F), ((float) j2 / 255.0F), (float) j1 / 255.0F);
+                        planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
+                        planeEntity.getPosY() + 0.5,
+                        planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
+                        ((float) i2 / 255.0F), ((float) j2 / 255.0F), (float) j1 / 255.0F);
                 planeEntity.world.spawnParticle(EnumParticleTypes.SPELL,
-                    planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
-                    planeEntity.getPosY() + 0.5,
-                    planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
-                    ((float) i2 / 255.0F), ((float) j2 / 255.0F), (float) j1 / 255.0F);
+                        planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
+                        planeEntity.getPosY() + 0.5,
+                        planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
+                        ((float) i2 / 255.0F), ((float) j2 / 255.0F), (float) j1 / 255.0F);
             }
 
             if (!planeEntity.world.isRemote) {
                 BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
-                double range = fluid % 4;
-                fire_fight(blockPos, range);
+                fireFight(blockPos);
 
                 if (planeEntity.ticksExisted % 5 == 0) {
                     (planeEntity.world).spawnParticle(EnumParticleTypes.CLOUD,
-                        planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
-                        planeEntity.getPosY() + 0.5,
-                        planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
-                        0, 0, 0.0f);
+                            planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
+                            planeEntity.getPosY() + 0.5,
+                            planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw - 50) * ((float) Math.PI / 180F)),
+                            0, 0, 0.0f);
 
                     (planeEntity.world).spawnParticle(EnumParticleTypes.CLOUD,
-                        planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
-                        planeEntity.getPosY() + 0.5,
-                        planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
-                        0, 0, 0.0f);
+                            planeEntity.getPosX() - MathHelper.sin((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
+                            planeEntity.getPosY() + 0.5,
+                            planeEntity.getPosZ() + MathHelper.cos((planeEntity.rotationYaw + 50) * ((float) Math.PI / 180F)),
+                            0, 0, 0.0f);
 
                     (planeEntity.world).spawnParticle(EnumParticleTypes.CLOUD,
-                        planeEntity.getPosX() - 2 * MathHelper.sin((planeEntity.rotationYaw - 80) * ((float) Math.PI / 180F)),
-                        planeEntity.getPosY() + 0.5,
-                        planeEntity.getPosZ() + 2 * MathHelper.cos((planeEntity.rotationYaw - 80) * ((float) Math.PI / 180F)),
-                        0, 0, 0.0f);
+                            planeEntity.getPosX() - 2 * MathHelper.sin((planeEntity.rotationYaw - 80) * ((float) Math.PI / 180F)),
+                            planeEntity.getPosY() + 0.5,
+                            planeEntity.getPosZ() + 2 * MathHelper.cos((planeEntity.rotationYaw - 80) * ((float) Math.PI / 180F)),
+                            0, 0, 0.0f);
 
                     (planeEntity.world).spawnParticle(EnumParticleTypes.CLOUD,
-                        planeEntity.getPosX() - 2 * MathHelper.sin((planeEntity.rotationYaw + 80) * ((float) Math.PI / 180F)),
-                        planeEntity.getPosY() + 0.5,
-                        planeEntity.getPosZ() + 2 * MathHelper.cos((planeEntity.rotationYaw + 80) * ((float) Math.PI / 180F)),
-                        0, 0, 0.0f);
+                            planeEntity.getPosX() - 2 * MathHelper.sin((planeEntity.rotationYaw + 80) * ((float) Math.PI / 180F)),
+                            planeEntity.getPosY() + 0.5,
+                            planeEntity.getPosZ() + 2 * MathHelper.cos((planeEntity.rotationYaw + 80) * ((float) Math.PI / 180F)),
+                            0, 0, 0.0f);
 
                     blockPos.setPos(planeEntity.getPosX(), Math.min(255, planeEntity.getPosY() + 2), planeEntity.getPosZ());
                     blockPos.add(Math.random() * 3, 0, Math.random() * 3);
@@ -138,18 +136,17 @@ public class SprayerUpgrade extends Upgrade {
 
                     if (effect != null) {
                         for (EntityLiving entity : planeEntity.world
-                            .getEntitiesWithinAABB(EntityLiving.class, AFFECT_ENTITIES.offset(planeEntity.getPositionVector()))) {
+                                .getEntitiesWithinAABB(EntityLiving.class, AFFECT_ENTITIES.offset(planeEntity.getPositionVector()))) {
                             entity.addPotionEffect(new PotionEffect(effect, 100));
                         }
                     }
                 }
             }
         }
-
         return false;
     }
 
-    private void fire_fight(BlockPos.MutableBlockPos blockPos, double range) {
+    private void fireFight(BlockPos.MutableBlockPos blockPos) {
         int i1 = this.effect == MobEffects.FIRE_RESISTANCE ? 10 : 3;
         for (int i = 0; i < i1; ++i) {
             blockPos.setPos(planeEntity.getPosX(), Math.min(255, planeEntity.getPosY() + 2), planeEntity.getPosZ());
@@ -180,16 +177,15 @@ public class SprayerUpgrade extends Upgrade {
                 player.setHeldItem(hand, new ItemStack(Items.GLASS_BOTTLE));
             }
         }
-
         return false;
     }
 
     @Override
     public void render(float partialticks, float scale) {
         if (!planeEntity.isLarge() || planeEntity instanceof HelicopterEntity) {
-            SprayerModel.INSTANCE.render(planeEntity,1,1,1,1,1,scale);
+            SprayerModel.INSTANCE.render(planeEntity, 1, 1, 1, 1, 1, scale);
         } else {
-            LargeSprayerModel.INSTANCE.render(planeEntity,1,1,1,1,1,scale);
+            LargeSprayerModel.INSTANCE.render(planeEntity, 1, 1, 1, 1, 1, scale);
         }
     }
 

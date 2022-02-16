@@ -19,13 +19,10 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(LargePlaneEntity.class, LargePlaneRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(HelicopterEntity.class, HelicopterRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(MegaPlaneEntity.class, MegaPlaneRenderer::new);
-//        RenderingRegistry.registerEntityRenderingHandler(SimplePlanesEntities.PLANE.get(), PlaneRenderer::new);
-//        RenderingRegistry.registerEntityRenderingHandler(SimplePlanesEntities.LARGE_PLANE.get(), LargePlaneRenderer::new);
-//        RenderingRegistry.registerEntityRenderingHandler(SimplePlanesEntities.HELICOPTER.get(), HelicopterRenderer::new);
-//        RenderingRegistry.registerEntityRenderingHandler(SimplePlanesEntities.MEGA_PLANE.get(), MegaPlaneRenderer::new);
+
         MinecraftForge.EVENT_BUS.register(new PlaneGui());
-        keyBind = new KeyBinding("key.plane_boost.desc",29 , "key.simpleplanes.category");
+
+        keyBind = new KeyBinding("key.plane_boost.desc", 29, "key.simpleplanes.category");
         ClientRegistry.registerKeyBinding(keyBind);
     }
-
 }

@@ -4,17 +4,16 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import xyz.przemyk.simpleplanes.math.MathUtil;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
 import xyz.przemyk.simpleplanes.entities.HelicopterEntity;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
+import xyz.przemyk.simpleplanes.math.MathUtil;
 import xyz.przemyk.simpleplanes.setup.SimplePlanesUpgrades;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 
 public class FloatingUpgrade extends Upgrade {
     public static final ResourceLocation TEXTURE = new ResourceLocation(SimplePlanesMod.MODID, "textures/plane_upgrades/floating.png");
     public static final ResourceLocation LARGE_TEXTURE = new ResourceLocation(SimplePlanesMod.MODID, "textures/plane_upgrades/floating_large.png");
-    //    public static final ResourceLocation HELICOPTER_TEXTURE = new ResourceLocation(SimplePlanesMod.MODID, "textures/plane_upgrades/floating_large.png");
     public static final ResourceLocation HELICOPTER_TEXTURE = new ResourceLocation("textures/blocks/wool_colored_white.png");
 
     public FloatingUpgrade(PlaneEntity planeEntity) {
@@ -40,17 +39,17 @@ public class FloatingUpgrade extends Upgrade {
         if (planeEntity.isLarge()) {
             if (planeEntity instanceof HelicopterEntity) {
                 HelicopterFloatingModel.INSTANCE
-                    .render(planeEntity, 1.0F, 1.0F,
-                        1.0F, 1.0F, 0, scale);
+                        .render(planeEntity, 1.0F, 1.0F,
+                                1.0F, 1.0F, 0, scale);
             } else {
                 LargeFloatingModel.INSTANCE
-                    .render(planeEntity, 1.0F, 1.0F,
-                        1.0F, 1.0F, 0, scale);
+                        .render(planeEntity, 1.0F, 1.0F,
+                                1.0F, 1.0F, 0, scale);
             }
         } else {
             FloatingModel.INSTANCE
-                .render(planeEntity, 1.0F, 1.0F,
-                    1.0F, 1.0F, 0, scale);
+                    .render(planeEntity, 1.0F, 1.0F,
+                            1.0F, 1.0F, 0, scale);
         }
     }
 

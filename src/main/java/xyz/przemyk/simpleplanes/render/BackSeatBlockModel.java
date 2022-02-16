@@ -1,6 +1,4 @@
 package xyz.przemyk.simpleplanes.render;
-// Made with Blockbench 3.5.2
-// Exported for Minecraft version 1.15
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
@@ -12,7 +10,7 @@ import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 public class BackSeatBlockModel {
 
     public static void renderBlock(PlaneEntity planeEntity, float partialTicks,
-                                    float scale) {
+                                   float scale) {
 //        moveMatrix(planeEntity, GlStateManager, 0);
         EngineModel.renderEngine(planeEntity, partialTicks, scale);
     }

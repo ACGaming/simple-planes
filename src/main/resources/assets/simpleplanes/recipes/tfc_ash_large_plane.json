@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "group": "simpleplanes:large_plane",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "IPB",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "tfc:metal/ingot/wrought_iron"
+    },
+    "P": {
+      "item": "simpleplanes:tfc_ash_plane"
+    },
+    "B": {
+      "item": "tfc:wood/boat/ash"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_ash_large_plane"
+  }
+}

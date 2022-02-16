@@ -48,5 +48,4 @@ public abstract class AbstractEngine extends Upgrade {
     public boolean shouldDropOld() {
         return true;
     }
-
 }

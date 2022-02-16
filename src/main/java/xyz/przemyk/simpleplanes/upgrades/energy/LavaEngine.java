@@ -7,7 +7,7 @@
 //import net.minecraft.item.ItemStack;
 //import net.minecraft.nbt.NBTTagCompound;
 //import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-//import xyz.przemyk.simpleplanes.Config;
+//import xyz.przemyk.simpleplanes.SimplePlanesConfig;
 //import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 //import xyz.przemyk.simpleplanes.render.EngineModel;
 //
@@ -32,12 +32,12 @@
 //    @Override
 //    public void deserializeNBT(NBTTagCompound nbt) {
 //        super.deserializeNBT(nbt);
-//        planeEntity.setMaxFuel(Config.INSTANCE.LAVA_MAX_FUEL.get());
+//        planeEntity.setMaxFuel(SimplePlanesConfig.INSTANCE.LAVA_MAX_FUEL.get());
 //    }
 //
 //    @Override
 //    public void onApply(ItemStack itemStack, EntityPlayer playerEntity) {
 //        super.onApply(itemStack, playerEntity);
-//        planeEntity.setMaxFuel(Config.INSTANCE.LAVA_MAX_FUEL.get());
+//        planeEntity.setMaxFuel(SimplePlanesConfig.INSTANCE.LAVA_MAX_FUEL.get());
 //    }
 //}

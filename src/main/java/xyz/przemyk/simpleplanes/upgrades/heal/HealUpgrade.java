@@ -10,13 +10,12 @@ import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 
 public class HealUpgrade extends Upgrade {
 
+    private int cooldown = 10;
+
     public HealUpgrade(PlaneEntity planeEntity) {
         super(SimplePlanesUpgrades.HEAL, planeEntity);
     }
 
-    private int cooldown = 10;
-
-    @SuppressWarnings("ConstantConditions")
     @Override
     public NBTTagCompound serializeNBT() {
         NBTTagCompound compoundNBT = new NBTTagCompound();
@@ -41,7 +40,6 @@ public class HealUpgrade extends Upgrade {
 
     @Override
     public void render(float partialticks, float scale) {
-
     }
 
     @Override

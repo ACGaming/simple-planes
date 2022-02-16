@@ -1,19 +1,21 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "I I",
-        "IWI",
-        "I I"
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "W": {
-            "item": "minecraft:bucket"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "T T",
+    "TBT",
+    "T T"
+  ],
+  "key": {
+    "T": {
+      "type": "forge:ore_dict",
+      "ore": "tuyere"
     },
-    "result": {
-        "item": "simpleplanes:sprayer"
+    "B": {
+      "type": "forge:ore_dict",
+      "ore": "barrel"
     }
+  },
+  "result": {
+    "item": "simpleplanes:sprayer"
+  }
 }

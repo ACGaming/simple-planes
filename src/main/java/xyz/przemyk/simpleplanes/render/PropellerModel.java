@@ -1,6 +1,4 @@
-package xyz.przemyk.simpleplanes.render;// Made with Blockbench 3.6.3
-// Exported for Minecraft version 1.15
-// Paste this class into your mod and generate all required imports
+package xyz.przemyk.simpleplanes.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -37,7 +35,7 @@ public class PropellerModel extends ModelBase {
 
         if (entity.isPowered()) {
             bone_propeller.rotateAngleZ =
-                ((entity.ticksExisted + limbSwing) % TICKS_PER_PROPELLER_ROTATION) / (float) (TICKS_PER_PROPELLER_ROTATION / 10.f * Math.PI);
+                    ((entity.ticksExisted + limbSwing) % TICKS_PER_PROPELLER_ROTATION) / (float) (TICKS_PER_PROPELLER_ROTATION / 10.f * Math.PI);
         } else {
             bone_propeller.rotateAngleZ = 1;
         }

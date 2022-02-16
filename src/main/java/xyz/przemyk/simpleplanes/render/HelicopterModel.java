@@ -1,11 +1,8 @@
 package xyz.przemyk.simpleplanes.render;
 
-// Made with Blockbench 3.6.3
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 
 public class HelicopterModel extends ModelBase {
     private final ModelRenderer Body;
@@ -101,6 +98,7 @@ public class HelicopterModel extends ModelBase {
         Body.render(scale);
         top.render(scale);
     }
+
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;

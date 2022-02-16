@@ -1,22 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "simpleplanes:healing",
-    "pattern": [
-        "i i",
-        " E ",
-        " i "
-    ],
-    "key": {
-        "i": {
-            "item": "minecraft:iron_ingot"
-        },
-        "E": {
-            "item": "minecraft:golden_apple",
-            "data": 0
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "simpleplanes:healing",
+  "pattern": [
+    "i i",
+    " E ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotWroughtIron"
     },
-    "result": {
-        "item": "simpleplanes:healing",
-        "count": 2
+    "E": {
+      "type": "forge:ore_dict",
+      "ore": "gemNormal"
     }
+  },
+  "result": {
+    "item": "simpleplanes:healing",
+    "count": 8
+  }
 }

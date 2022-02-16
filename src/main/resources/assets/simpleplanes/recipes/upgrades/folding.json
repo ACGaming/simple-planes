@@ -1,20 +1,24 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:elytra"
-        },
-        {
-            "item": "minecraft:gold_block"
-        },
-        {
-            "item": "minecraft:string"
-        },
-        {
-            "item": "minecraft:string"
-        }
-    ],
-    "result": {
-        "item": "simpleplanes:folding"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "clothHighQuality"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotDoubleGold"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "string"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "string"
     }
+  ],
+  "result": {
+    "item": "simpleplanes:folding"
+  }
 }

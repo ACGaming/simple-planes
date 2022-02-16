@@ -3,10 +3,7 @@ package xyz.przemyk.simpleplanes.render;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 
-// Made with Blockbench 3.5.2
-// Exported for Minecraft version 1.15
 @SuppressWarnings("FieldCanBeLocal")
 public class FurnacePlaneModel extends ModelBase {
     public static final int TICKS_PER_PROPELLER_ROTATION = 5;

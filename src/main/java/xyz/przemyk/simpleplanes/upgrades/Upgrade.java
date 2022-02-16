@@ -8,21 +8,20 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.INBTSerializable;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 
 public abstract class Upgrade implements INBTSerializable<NBTTagCompound> {
 
-    private final UpgradeType type;
     protected final PlaneEntity planeEntity;
-
-    public PlaneEntity getPlaneEntity() {
-        return planeEntity;
-    }
+    private final UpgradeType type;
 
     public Upgrade(UpgradeType type, PlaneEntity planeEntity) {
         this.type = type;
         this.planeEntity = planeEntity;
+    }
+
+    public PlaneEntity getPlaneEntity() {
+        return planeEntity;
     }
 
     public final UpgradeType getType() {
@@ -30,7 +29,7 @@ public abstract class Upgrade implements INBTSerializable<NBTTagCompound> {
     }
 
     public NonNullList<ItemStack> getDrops() {
-        return NonNullList.from(ItemStack.EMPTY,getDrop());
+        return NonNullList.from(ItemStack.EMPTY, getDrop());
     }
 
     public ItemStack getDrop() {
@@ -40,7 +39,6 @@ public abstract class Upgrade implements INBTSerializable<NBTTagCompound> {
 
     /**
      * Called when passenger right clicks with item.
-     *
      *
      * @param player
      * @param world
@@ -70,12 +68,13 @@ public abstract class Upgrade implements INBTSerializable<NBTTagCompound> {
 
     /**
      * Called to render upgrade model. Loading model outside of this method may crash server.
-     *
      */
     public abstract void render(float partialticks, float scale);
-    public ResourceLocation getTexture(){
+
+    public ResourceLocation getTexture() {
         return null;
     }
+
     @Override
     public NBTTagCompound serializeNBT() {
         return new NBTTagCompound();
@@ -84,6 +83,7 @@ public abstract class Upgrade implements INBTSerializable<NBTTagCompound> {
     @Override
     public void deserializeNBT(NBTTagCompound nbt) {
     }
+
     public NBTTagCompound serializeNBTData() {
         return new NBTTagCompound();
     }

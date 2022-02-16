@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "simpleplanes:mega_plane",
+  "pattern": [
+    "#OO",
+    "#XO",
+    "#RR"
+  ],
+  "key": {
+    "#": {
+      "item": "simpleplanes:propeller"
+    },
+    "O": {
+      "item": "tfc:wood/planks/rosewood"
+    },
+    "X": {
+      "item": "simpleplanes:tfc_rosewood_large_plane"
+    },
+    "R": {
+      "item": "tfc:wood/boat/rosewood"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_rosewood_mega_plane",
+    "count": 1
+  }
+}

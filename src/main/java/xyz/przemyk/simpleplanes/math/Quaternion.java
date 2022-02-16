@@ -32,11 +32,11 @@ public class Quaternion {
         if (dest == null)
             dest = new Quaternion();
         dest.set(left.x * right.w + left.w * right.x + left.y * right.z
-                - left.z * right.y, left.y * right.w + left.w * right.y
-                + left.z * right.x - left.x * right.z, left.z * right.w
-                + left.w * right.z + left.x * right.y - left.y * right.x,
-            left.w * right.w - left.x * right.x - left.y * right.y
-                - left.z * right.z);
+                        - left.z * right.y, left.y * right.w + left.w * right.y
+                        + left.z * right.x - left.x * right.z, left.z * right.w
+                        + left.w * right.z + left.x * right.y - left.y * right.x,
+                left.w * right.w - left.x * right.x - left.y * right.y
+                        - left.z * right.z);
         return dest;
     }
 

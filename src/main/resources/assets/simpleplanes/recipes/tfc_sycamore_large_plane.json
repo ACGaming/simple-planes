@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "group": "simpleplanes:large_plane",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "IPB",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "tfc:metal/ingot/wrought_iron"
+    },
+    "P": {
+      "item": "simpleplanes:tfc_sycamore_plane"
+    },
+    "B": {
+      "item": "tfc:wood/boat/sycamore"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_sycamore_large_plane"
+  }
+}

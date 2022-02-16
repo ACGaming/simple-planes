@@ -9,10 +9,10 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import xyz.przemyk.simpleplanes.math.MathUtil;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
 import xyz.przemyk.simpleplanes.entities.HelicopterEntity;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
+import xyz.przemyk.simpleplanes.math.MathUtil;
 import xyz.przemyk.simpleplanes.math.Vector3f;
 import xyz.przemyk.simpleplanes.setup.SimplePlanesUpgrades;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
@@ -25,6 +25,10 @@ public class RocketUpgrade extends Upgrade {
 
     public int fuel = 0;
 
+    public RocketUpgrade(PlaneEntity planeEntity) {
+        super(SimplePlanesUpgrades.BOOSTER, planeEntity);
+    }
+
     @Override
     public NBTTagCompound serializeNBT() {
         NBTTagCompound compoundNBT = new NBTTagCompound();
@@ -35,10 +39,6 @@ public class RocketUpgrade extends Upgrade {
     @Override
     public void deserializeNBT(NBTTagCompound compoundNBT) {
         fuel = compoundNBT.getInteger("fuel");
-    }
-
-    public RocketUpgrade(PlaneEntity planeEntity) {
-        super(SimplePlanesUpgrades.BOOSTER, planeEntity);
     }
 
     @Override
@@ -98,7 +98,6 @@ public class RocketUpgrade extends Upgrade {
         if (!planeEntity.world.isRemote) {
             planeEntity.spawnParticle(EnumParticleTypes.FLAME, new Vector3f(-0.6f, 0f, -1.3f), 5);
             planeEntity.spawnParticle(EnumParticleTypes.FLAME, new Vector3f(0.6f, 0f, -1.3f), 5);
-
         }
     }
 

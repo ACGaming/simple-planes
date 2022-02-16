@@ -14,16 +14,16 @@ import static xyz.przemyk.simpleplanes.handler.InjectionUtil.Null;
 @GameRegistry.ObjectHolder(MODID)
 @Mod.EventBusSubscriber(modid = MODID)
 public class SimplePlanesSounds {
-//    public static final SoundEvent SOUND_EVENTS =  SimplePlanesMod.MODID);
+    //    public static final SoundEvent SOUND_EVENTS =  SimplePlanesMod.MODID);
     @GameRegistry.ObjectHolder("plane_loop")
-    public static final SoundEvent PLANE_LOOP=Null();
+    public static final SoundEvent PLANE_LOOP = Null();
 
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
         IForgeRegistry<SoundEvent> registry = event.getRegistry();
         registry.register(createSoundEvent("plane_loop"));
-
     }
+
     private static SoundEvent createSoundEvent(String name) {
         ResourceLocation location = new ResourceLocation(MODID, name);
         return new SoundEvent(location).setRegistryName(location);

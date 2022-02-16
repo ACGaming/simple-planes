@@ -37,7 +37,7 @@ public class ShooterUpgrade extends Upgrade {
 
     @Override
     public boolean onItemRightClick(EntityPlayer player, World world, EnumHand hand, ItemStack itemStack) {
-        if (!player.isRidingSameEntity(planeEntity)||world.isRemote){
+        if (!player.isRidingSameEntity(planeEntity) || world.isRemote) {
             return false;
         }
         Vector3f motion1 = planeEntity.transformPos(new Vector3f(0, 0, (float) (1 + planeEntity.getMotion().length())));
@@ -68,7 +68,7 @@ public class ShooterUpgrade extends Upgrade {
             double d5 = random.nextGaussian() * 0.05D + 2 * motion.z;
             EntitySmallFireball fireball = new EntitySmallFireball(world, x, y, z, d3, d4, d5);
             fireball.shootingEntity = player;
-            setMotion(fireball,motion);
+            setMotion(fireball, motion);
             world.spawnEntity(fireball);
             if (!player.isCreative()) {
                 itemStack.shrink(1);

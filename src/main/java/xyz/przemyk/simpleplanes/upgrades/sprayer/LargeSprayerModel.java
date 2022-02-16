@@ -1,11 +1,8 @@
 package xyz.przemyk.simpleplanes.upgrades.sprayer;
-// Made with Blockbench 3.5.2
-// Exported for Minecraft version 1.15
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import xyz.przemyk.simpleplanes.entities.LargePlaneEntity;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class LargeSprayerModel extends ModelBase {

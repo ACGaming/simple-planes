@@ -1,22 +1,24 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "III",
-        "IFI",
-        "RRR"
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "F": {
-            "item": "minecraft:furnace"
-        },
-        "R": {
-            "item": "minecraft:redstone"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "IFI",
+    "RRR"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotWroughtIron"
     },
-    "result": {
-        "item": "simpleplanes:furnace_engine"
+    "F": {
+      "item": "tfc:blast_furnace"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
     }
+  },
+  "result": {
+    "item": "simpleplanes:furnace_engine"
+  }
 }

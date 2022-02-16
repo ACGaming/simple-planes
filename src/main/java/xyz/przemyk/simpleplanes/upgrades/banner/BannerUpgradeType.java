@@ -1,6 +1,5 @@
 package xyz.przemyk.simpleplanes.upgrades.banner;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemBanner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;

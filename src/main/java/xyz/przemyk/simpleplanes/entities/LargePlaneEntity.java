@@ -9,25 +9,25 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import xyz.przemyk.simpleplanes.PlaneMaterial;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
 import xyz.przemyk.simpleplanes.math.Vector3f;
+import xyz.przemyk.simpleplanes.setup.PlaneMaterial;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 import xyz.przemyk.simpleplanes.upgrades.UpgradeType;
 
 import java.util.List;
 
 public class LargePlaneEntity extends PlaneEntity {
-    public LargePlaneEntity( World worldIn) {
-        super( worldIn);
+    public LargePlaneEntity(World worldIn) {
+        super(worldIn);
     }
 
-    public LargePlaneEntity( World worldIn, PlaneMaterial material) {
-        super( worldIn, material);
+    public LargePlaneEntity(World worldIn, PlaneMaterial material) {
+        super(worldIn, material);
     }
 
-    public LargePlaneEntity( World worldIn, PlaneMaterial material, double x, double y, double z) {
-        super( worldIn, material, x, y, z);
+    public LargePlaneEntity(World worldIn, PlaneMaterial material, double x, double y, double z) {
+        super(worldIn, material, x, y, z);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class LargePlaneEntity extends PlaneEntity {
         List<Entity> list = this.world.getEntitiesInAABBexcluding(this, this.getEntityBoundingBox().grow(0.2F, -0.01F, 0.2F), EntitySelectors.getTeamCollisionPredicate(this));
         for (Entity entity : list) {
             if (!this.world.isRemote && !(this.getControllingPassenger() instanceof EntityPlayer) &&
-                !entity.isPassenger(this) &&
-                !entity.isRiding() && entity instanceof EntityLiving && !(entity instanceof EntityPlayer)) {
+                    !entity.isPassenger(this) &&
+                    !entity.isRiding() && entity instanceof EntityLiving && !(entity instanceof EntityPlayer)) {
                 entity.startRiding(this);
             }
         }
@@ -65,7 +65,6 @@ public class LargePlaneEntity extends PlaneEntity {
                 }
             }
         }
-
         return true;
     }
 

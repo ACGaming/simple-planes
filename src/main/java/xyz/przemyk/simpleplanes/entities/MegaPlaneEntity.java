@@ -6,9 +6,9 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import xyz.przemyk.simpleplanes.PlaneMaterial;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
 import xyz.przemyk.simpleplanes.math.Vector3f;
+import xyz.przemyk.simpleplanes.setup.PlaneMaterial;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 import xyz.przemyk.simpleplanes.upgrades.UpgradeType;
 
@@ -18,12 +18,16 @@ public class MegaPlaneEntity extends LargePlaneEntity {
     public static final EntitySize FLYING_SIZE = EntitySize.flexible(6F, 1.5F);
     public static final EntitySize FLYING_SIZE_EASY = EntitySize.flexible(6F, 2.5F);
 
-    public MegaPlaneEntity( World worldIn) {
-        super( worldIn);
+    public MegaPlaneEntity(World worldIn) {
+        super(worldIn);
     }
 
-    public MegaPlaneEntity( World worldIn, PlaneMaterial material, double x, double y, double z) {
-        super( worldIn, material, x, y, z);
+    public MegaPlaneEntity(World worldIn, PlaneMaterial material, double x, double y, double z) {
+        super(worldIn, material, x, y, z);
+    }
+
+    public MegaPlaneEntity(World worldIn, PlaneMaterial material) {
+        super(worldIn, material);
     }
 
     @Override
@@ -32,11 +36,6 @@ public class MegaPlaneEntity extends LargePlaneEntity {
             return isEasy() ? FLYING_SIZE_EASY : FLYING_SIZE;
         }
         return FLYING_SIZE;
-        //just hate my head in the nether ceiling
-    }
-
-    public MegaPlaneEntity( World worldIn, PlaneMaterial material) {
-        super( worldIn, material);
     }
 
     @Override
@@ -104,7 +103,7 @@ public class MegaPlaneEntity extends LargePlaneEntity {
         } else if (vars.moveForward < 0.0F) {
             pitch = vars.passengerSprinting ? -0.8f : -0.4f;
         }
-        if (getOnGround()||isAboveWater()) {
+        if (getOnGround() || isAboveWater()) {
             pitch *= 2;
         }
         this.rotationPitch += pitch;

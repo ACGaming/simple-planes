@@ -19,7 +19,7 @@ public class DragonModel {
         float r = (MathHelper.cos(f2 / 5));
 
         TileEntitySkullRenderer.instance
-            .renderSkull(0, 0, 0, EnumFacing.DOWN, r, 5, null, 0, partialTicks);
+                .renderSkull(0, 0, 0, EnumFacing.DOWN, r, 5, null, 0, partialTicks);
 
         GlStateManager.popMatrix();
     }

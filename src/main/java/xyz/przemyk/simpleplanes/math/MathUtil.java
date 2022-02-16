@@ -201,10 +201,10 @@ public class MathUtil extends MathHelper {
             // and normalize the result.
 
             Quaternion quaternion = new Quaternion(
-                start.getX() * (1 - perc) + end.getX() * perc,
-                start.getY() * (1 - perc) + end.getY() * perc,
-                start.getZ() * (1 - perc) + end.getZ() * perc,
-                start.getW() * (1 - perc) + end.getW() * perc
+                    start.getX() * (1 - perc) + end.getX() * perc,
+                    start.getY() * (1 - perc) + end.getY() * perc,
+                    start.getZ() * (1 - perc) + end.getZ() * perc,
+                    start.getW() * (1 - perc) + end.getW() * perc
             );
             return normalizeQuaternion(quaternion);
         }
@@ -219,10 +219,10 @@ public class MathUtil extends MathHelper {
         float s1 = (float) (sin_theta / sin_theta_0);
 
         Quaternion quaternion = new Quaternion(
-            start.getX() * (s0) + end.getX() * s1,
-            start.getY() * (s0) + end.getY() * s1,
-            start.getZ() * (s0) + end.getZ() * s1,
-            start.getW() * (s0) + end.getW() * s1
+                start.getX() * (s0) + end.getX() * s1,
+                start.getY() * (s0) + end.getY() * s1,
+                start.getZ() * (s0) + end.getZ() * s1,
+                start.getW() * (s0) + end.getW() * s1
         );
         return normalizeQuaternion(quaternion);
     }
@@ -237,10 +237,10 @@ public class MathUtil extends MathHelper {
 
     public static void transformVec(Vector3f vec, Quaternion rotation) {
         Quaternion quaternion = new Quaternion(rotation);
-        hamiltonProduct(quaternion,new Quaternion(vec.getX(), vec.getY(), vec.getZ(), 0.0F));
+        hamiltonProduct(quaternion, new Quaternion(vec.getX(), vec.getY(), vec.getZ(), 0.0F));
         Quaternion quaternion2 = new Quaternion(rotation);
         quaternion2.negate();
-        hamiltonProduct(quaternion,quaternion2);
+        hamiltonProduct(quaternion, quaternion2);
         vec.set(quaternion.getX(), quaternion.getY(), quaternion.getZ());
     }
 
@@ -271,10 +271,10 @@ public class MathUtil extends MathHelper {
         @Override
         public String toString() {
             return "EulerAngles{" +
-                "pitch=" + pitch +
-                ", yaw=" + yaw +
-                ", roll=" + roll +
-                '}';
+                    "pitch=" + pitch +
+                    ", yaw=" + yaw +
+                    ", roll=" + roll +
+                    '}';
         }
     }
 }

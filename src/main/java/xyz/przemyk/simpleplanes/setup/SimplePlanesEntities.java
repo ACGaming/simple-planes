@@ -1,6 +1,5 @@
 package xyz.przemyk.simpleplanes.setup;
 
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,33 +19,33 @@ import static xyz.przemyk.simpleplanes.SimplePlanesMod.MODID;
 public class SimplePlanesEntities {
     private static int ID = 0;
     static EntityEntry PLANE = EntityEntryBuilder.create()
-        .entity(PlaneEntity.class)
-        .id(new ResourceLocation(MODID, "plane"), ID++)
-        .name("plane")
-        .factory(PlaneEntity::new)
-        .tracker(64, 3, true)
-        .build();
+            .entity(PlaneEntity.class)
+            .id(new ResourceLocation(MODID, "plane"), ID++)
+            .name("plane")
+            .factory(PlaneEntity::new)
+            .tracker(64, 3, true)
+            .build();
     static EntityEntry LARGE_PLANE = EntityEntryBuilder.create()
-        .entity(LargePlaneEntity.class)
-        .id(new ResourceLocation(MODID, "large_plane"), ID++)
-        .name("large_plane")
-        .factory(LargePlaneEntity::new)
-        .tracker(64, 3, true)
-        .build();
+            .entity(LargePlaneEntity.class)
+            .id(new ResourceLocation(MODID, "large_plane"), ID++)
+            .name("large_plane")
+            .factory(LargePlaneEntity::new)
+            .tracker(64, 3, true)
+            .build();
     static EntityEntry HELICOPTER = EntityEntryBuilder.create()
-        .entity(HelicopterEntity.class)
-        .id(new ResourceLocation(MODID, "helicopter"), ID++)
-        .name("helicopter")
-        .factory(HelicopterEntity::new)
-        .tracker(64, 3, true)
-        .build();
+            .entity(HelicopterEntity.class)
+            .id(new ResourceLocation(MODID, "helicopter"), ID++)
+            .name("helicopter")
+            .factory(HelicopterEntity::new)
+            .tracker(64, 3, true)
+            .build();
     static EntityEntry MEGA_PLANE = EntityEntryBuilder.create()
-        .entity(MegaPlaneEntity.class)
-        .id(new ResourceLocation(MODID, "mega_plane"), ID++)
-        .name("mega_plane")
-        .factory(MegaPlaneEntity::new)
-        .tracker(64, 3, true)
-        .build();
+            .entity(MegaPlaneEntity.class)
+            .id(new ResourceLocation(MODID, "mega_plane"), ID++)
+            .name("mega_plane")
+            .factory(MegaPlaneEntity::new)
+            .tracker(64, 3, true)
+            .build();
 
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {

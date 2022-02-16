@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "group": "simpleplanes:large_plane",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "IPB",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "tfc:metal/ingot/wrought_iron"
+    },
+    "P": {
+      "item": "simpleplanes:tfc_acacia_plane"
+    },
+    "B": {
+      "item": "tfc:wood/boat/acacia"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:tfc_acacia_large_plane"
+  }
+}

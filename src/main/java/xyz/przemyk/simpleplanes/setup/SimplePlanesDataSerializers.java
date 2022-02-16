@@ -9,21 +9,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.DataSerializerEntry;
 import xyz.przemyk.simpleplanes.math.Quaternion;
 
-
 import static xyz.przemyk.simpleplanes.SimplePlanesMod.MODID;
 
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = MODID)
 public class SimplePlanesDataSerializers {
-    @SubscribeEvent
-    public static void registerSerializers(RegistryEvent.Register<DataSerializerEntry> event) {
-        // Create a new DataSerializerEntry (can't register the serializer directly)
-        // and add it to the forge registry list so our classes can use it.
-        // The register() function takes an IForgeRegistryEntry so we create that here from the DataSerializerEntry.
-        event.getRegistry().register(new DataSerializerEntry(QUATERNION_SERIALIZER).setRegistryName(MODID, "serializerQuaternion"));
-    }
-
-
     public static final DataSerializer<Quaternion> QUATERNION_SERIALIZER = new DataSerializer<Quaternion>() {
 
         @Override
@@ -55,5 +45,11 @@ public class SimplePlanesDataSerializers {
         }
     };
 
-
+    @SubscribeEvent
+    public static void registerSerializers(RegistryEvent.Register<DataSerializerEntry> event) {
+        // Create a new DataSerializerEntry (can't register the serializer directly)
+        // and add it to the forge registry list so our classes can use it.
+        // The register() function takes an IForgeRegistryEntry so we create that here from the DataSerializerEntry.
+        event.getRegistry().register(new DataSerializerEntry(QUATERNION_SERIALIZER).setRegistryName(MODID, "serializerQuaternion"));
+    }
 }

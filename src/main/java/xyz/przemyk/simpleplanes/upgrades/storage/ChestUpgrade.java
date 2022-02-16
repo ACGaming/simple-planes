@@ -23,11 +23,10 @@ import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 
 
 public class ChestUpgrade extends Upgrade implements IInventoryChangedListener, IInteractionObject {
-    TileEntityChest tileEntity;
     public static final ResourceLocation TEXTURE = new ResourceLocation(SimplePlanesMod.MODID, "textures/plane_upgrades/storage.png");
-
+    private final float partialticks = 0;
     public IInventory inventory;
-    private float partialticks = 0;
+    TileEntityChest tileEntity;
     private boolean open = false;
     private int size = 1;
 
@@ -188,7 +187,7 @@ public class ChestUpgrade extends Upgrade implements IInventoryChangedListener, 
     }
 
 
-//    @Override
+    //    @Override
 //    public void render(float partialticks, float scale) {
 //        this.partialticks = partialticks;
 //        tileEntity.setWorld(null);
@@ -205,12 +204,11 @@ public class ChestUpgrade extends Upgrade implements IInventoryChangedListener, 
         return TEXTURE;
     }
 
-//    @Override
+    //    @Override
 //    public ITextComponent getDisplayName() {
 //        return new TranslationTextComponent(SimplePlanesMod.MODID + ":chest");
 //    }
-    public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)
-    {
+    public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
 //        this.fillWithLoot(playerIn);
         return new ContainerChest(playerInventory, inventory, playerIn);
     }

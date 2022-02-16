@@ -6,7 +6,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryBuilder;
-import xyz.przemyk.simpleplanes.PlaneMaterial;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
 import xyz.przemyk.simpleplanes.upgrades.UpgradeType;
 
@@ -20,12 +19,11 @@ public class SimplePlanesRegistries {
     @SubscribeEvent
     public static void registerRegistries(final RegistryEvent.NewRegistry event) {
         UPGRADE_TYPES = new RegistryBuilder<UpgradeType>().setName(new ResourceLocation(SimplePlanesMod.MODID, "upgrade_types")).setType(UpgradeType.class)
-            .create();
+                .create();
         PLANE_MATERIALS = new RegistryBuilder<PlaneMaterial>()
-            .setType(PlaneMaterial.class)
-            .setDefaultKey(new ResourceLocation(SimplePlanesMod.MODID, "oak"))
-            .setName(new ResourceLocation(SimplePlanesMod.MODID, "plane_materials"))
-            .create();
-
+                .setType(PlaneMaterial.class)
+                .setDefaultKey(new ResourceLocation(SimplePlanesMod.MODID, "tfc_oak"))
+                .setName(new ResourceLocation(SimplePlanesMod.MODID, "plane_materials"))
+                .create();
     }
 }
