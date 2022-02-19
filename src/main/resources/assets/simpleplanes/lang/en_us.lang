@@ -14,7 +14,7 @@ description.simpleplanes.name=Right Click with a pickaxe above cloud level to ge
 plane.onboard=Press %2$s to boost | Press %1$s to dismount
 helicopter.onboard=Press %2$s to take off | Press %1$s to dismount
 
-death.attack.plane_crash.name=%1$s died in a plane crash
+death.attack.plane_crash=%1$s died in a plane crash
 
 block.charger_block.name=FE Charging Station
 block.fueling_block.name=Plane Fueling Station

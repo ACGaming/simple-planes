@@ -12,5 +12,12 @@
     "sounds": [
       "simpleplanes:plane_loop"
     ]
+  },
+  "plane_loop_inside": {
+    "category": "ambient",
+    "subtitle": "simpleplanes.subtitle.plane_loop_inside",
+    "sounds": [
+      "simpleplanes:plane_loop_inside"
+    ]
   }
 }

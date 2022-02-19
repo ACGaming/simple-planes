@@ -2,6 +2,7 @@ package xyz.przemyk.simpleplanes.entities;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
@@ -66,11 +67,12 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
     public float rotationRoll;
     public float prevRotationRoll;
     //for the on mount massage
-    public boolean mountmassage;
+    public boolean mountMessage;
     //fixing the plane on the ground
     public int not_moving_time;
     //golden hearths decay
     public int health_timer = 0;
+    public boolean started = false;
     protected int poweredTicks;
     //count how many ticks since on ground
     private int groundTicks;
@@ -264,6 +266,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         }
         if (!this.world.isRemote) {
             rightClickUpgrades(player, hand, itemStack);
+            Minecraft.getMinecraft().getSoundHandler().playSound(new PlaneMovingSound(this));
             return player.startRiding(this);
         } else {
             return player.getLowestRidingEntity() == this.getLowestRidingEntity();
@@ -317,7 +320,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         super.applyEntityCollision(entityIn);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
 //        this.setRockingTicks(60);
@@ -365,7 +367,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         }
     }
 
-    @SuppressWarnings("rawtypes")
     protected void dropItem() {
         ItemStack itemStack = new ItemStack(getItem());
         final NBTTagCompound value = new NBTTagCompound();
@@ -391,7 +392,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             return isEasy() ? FLYING_SIZE_EASY : FLYING_SIZE;
         }
         return STANDING_SIZE;
-        //just hate my head in the nether ceiling
     }
 
     private void setSize(EntitySize size) {
@@ -415,12 +415,17 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         prevRotationPitch = rotationPitch;
         prevRotationRoll = rotationRoll;
         if (isPowered()) {
+            if (!started) {
+                playSound(SimplePlanesSounds.PLANE_START, 0.05F, 1.0F);
+                started = true;
+            }
             if (poweredTicks % 50 == 0) {
                 playSound(SimplePlanesSounds.PLANE_LOOP, 0.05F, 1.0F);
             }
             ++poweredTicks;
         } else {
             poweredTicks = 0;
+            started = false;
         }
 
         if (world.isRemote && !canPassengerSteer()) {
@@ -1108,9 +1113,8 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         }
     }
 
-    @SuppressWarnings("deprecation")
     public void crash(float damage) {
-        if (!this.world.isRemote && !this.isDead) {
+        if (!this.world.isRemote && !this.isDead && SimplePlanesConfig.PLANE_CRASH) {
             for (Entity entity : getPassengers()) {
                 float damage_mod = Math.min(1, 1 - ((float) getHealth() / getMaxHealth()));
                 entity.attackEntityFrom(SimplePlanesMod.DAMAGE_SOURCE_PLANE_CRASH, damage * damage_mod);
@@ -1188,7 +1192,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         }
     }
 
-    @SuppressWarnings("rawtypes")
     public ItemStack getItemStack() {
         ItemStack itemStack = new ItemStack(getItem());
         if (upgrades.containsKey(SimplePlanesUpgrades.FOLDING.getId())) {
@@ -1263,7 +1266,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
     protected void addPassenger(Entity passenger) {
         super.addPassenger(passenger);
         if (this.canPassengerSteer()) {
-            this.mountmassage = true;
+            this.mountMessage = true;
 
             if (this.lerpSteps > 0) {
                 this.lerpSteps = 0;
