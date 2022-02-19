@@ -8,7 +8,7 @@
   "key": {
     "C": {
       "type": "forge:ore_dict",
-      "ore": "gemCoal"
+      "ore": "plankWood"
     },
     "F": {
       "item": "simpleplanes:furnace_engine"

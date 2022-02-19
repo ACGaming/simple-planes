@@ -1,5 +1,6 @@
 package xyz.przemyk.simpleplanes.upgrades.energy;
 
+import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,19 +13,19 @@ import xyz.przemyk.simpleplanes.SimplePlanesMod;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 import xyz.przemyk.simpleplanes.setup.SimplePlanesUpgrades;
 
-public class FurnaceJunkEngine extends CoalEngine {
+public class JunkEngine extends CoalEngine {
     public static final ResourceLocation TEXTURE = new ResourceLocation(SimplePlanesMod.MODID, "textures/plane_upgrades/engine_j.png");
     public static final ResourceLocation TEXTURE_LIT = new ResourceLocation(SimplePlanesMod.MODID, "textures/plane_upgrades/engine_j_lit.png");
 
-    public FurnaceJunkEngine(PlaneEntity planeEntity) {
+    public JunkEngine(PlaneEntity planeEntity) {
         super(SimplePlanesUpgrades.SMOKER_ENGINE, planeEntity);
     }
 
     @Override
     public boolean onItemRightClick(EntityPlayer player, World world, EnumHand hand, ItemStack itemStack) {
-        if (!player.world.isRemote && planeEntity.getFuel() < SimplePlanesConfig.FLY_TICKS_PER_COAL / 4) {
+        if (!player.world.isRemote && planeEntity.getFuel() < SimplePlanesConfig.COAL_MAX_FUEL) {
             int burnTime = TileEntityFurnace.getItemBurnTime(itemStack);
-            if (burnTime > 0) {
+            if (!OreDictionaryHelper.doesStackMatchOre(itemStack, "gemCoal") && !OreDictionaryHelper.doesStackMatchOre(itemStack, "charcoal") && burnTime > 0) {
                 int fuel = (int) ((burnTime / 1600f) * SimplePlanesConfig.FLY_TICKS_PER_COAL);
                 planeEntity.addFuelMaxed(fuel);
                 if (!player.isCreative()) {

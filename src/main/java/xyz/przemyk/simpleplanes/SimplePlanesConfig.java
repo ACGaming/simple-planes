@@ -21,12 +21,12 @@ public class SimplePlanesConfig {
     public static boolean PLANE_HEIST = true;
 
     @Config.Name("Coal max fuel")
-    @Config.Comment("Max fuel value for the coal plane")
-    public static int COAL_MAX_FUEL = 1600;
+    @Config.Comment("Max fuel value for coal engines")
+    public static int COAL_MAX_FUEL = 4800;
 
     @Config.Name("Fly ticks per coal")
-    @Config.Comment("Ticks of flying per one coal burn time")
-    public static int FLY_TICKS_PER_COAL = 160;
+    @Config.Comment("Ticks of regular flying per coal")
+    public static int FLY_TICKS_PER_COAL = 300;
 
     @Config.Name("Turn threshold")
     @Config.Comment("For controllers, a threshold for the joystick movement of the plane")

@@ -28,8 +28,8 @@ public class CoalEngine extends AbstractEngine {
 
     @Override
     public boolean onItemRightClick(EntityPlayer player, World world, EnumHand hand, ItemStack itemStack) {
-        if (!player.world.isRemote && planeEntity.getFuel() < SimplePlanesConfig.FLY_TICKS_PER_COAL / 4) {
-            if (OreDictionaryHelper.doesStackMatchOre(itemStack, "gemCoal")) {
+        if (!player.world.isRemote && planeEntity.getFuel() < (SimplePlanesConfig.COAL_MAX_FUEL - SimplePlanesConfig.FLY_TICKS_PER_COAL)) {
+            if (OreDictionaryHelper.doesStackMatchOre(itemStack, "gemCoal") || OreDictionaryHelper.doesStackMatchOre(itemStack, "charcoal")) {
                 planeEntity.addFuelMaxed();
                 if (!player.isCreative()) {
                     itemStack.shrink(1);
