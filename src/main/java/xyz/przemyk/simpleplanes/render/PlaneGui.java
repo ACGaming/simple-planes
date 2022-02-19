@@ -22,10 +22,6 @@ public class PlaneGui extends Gui {
     @SubscribeEvent
     public void renderGameOverlayPre(RenderGameOverlayEvent.Pre event) {
         Minecraft mc = Minecraft.getMinecraft();
-        ScaledResolution res = new ScaledResolution(mc);
-        int scaledWidth = res.getScaledWidth();
-        int scaledHeight = res.getScaledHeight();
-
         if (mc.player.getRidingEntity() instanceof PlaneEntity) {
             PlaneEntity planeEntity = (PlaneEntity) mc.player.getRidingEntity();
             if (event.getType() == ElementType.ALL) {
@@ -42,8 +38,19 @@ public class PlaneGui extends Gui {
                     }
                 }
             }
-            if (event.getType() == RenderGameOverlayEvent.ElementType.EXPERIENCE) {
-                event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public void renderGameOverlayPost(RenderGameOverlayEvent.Post event) {
+        Minecraft mc = Minecraft.getMinecraft();
+        ScaledResolution res = new ScaledResolution(mc);
+        int scaledWidth = res.getScaledWidth();
+        int scaledHeight = res.getScaledHeight();
+
+        if (mc.player.getRidingEntity() instanceof PlaneEntity) {
+            PlaneEntity planeEntity = (PlaneEntity) mc.player.getRidingEntity();
+            if (event.getType() == ElementType.ALL) {
                 int x = scaledWidth / 2 - 91;
                 int y = scaledHeight - 32 + 3;
                 mc.getTextureManager().bindTexture(bar);
@@ -62,19 +69,6 @@ public class PlaneGui extends Gui {
                 int bar_image_pos = planeEntity.isSprinting() ? tex_height * 2 : tex_height;
                 drawTexturedModalRect(x, y, 0, bar_image_pos, currentWidth, tex_height);
             }
-        }
-    }
-
-    @SubscribeEvent
-    public void renderGameOverlayPost(RenderGameOverlayEvent.Post event) {
-        Minecraft mc = Minecraft.getMinecraft();
-        ScaledResolution res = new ScaledResolution(mc);
-        int scaledWidth = res.getScaledWidth();
-        int scaledHeight = res.getScaledHeight();
-
-        if (mc.player.getRidingEntity() instanceof PlaneEntity) {
-            PlaneEntity planeEntity = (PlaneEntity) mc.player.getRidingEntity();
-
             if (event.getType() == ElementType.ALL) {
                 mc.getTextureManager().bindTexture(bar);
                 int left_align = scaledWidth / 2 + 91;
@@ -85,7 +79,7 @@ public class PlaneGui extends Gui {
                 final int FULL = 0;
                 final int EMPTY = 16;
                 final int GOLD = 32;
-                int right_height = 39;
+                int right_height = 49;
                 int max_row_size = 5;
 
                 for (int heart = 0; hearts > 0; heart += max_row_size) {
