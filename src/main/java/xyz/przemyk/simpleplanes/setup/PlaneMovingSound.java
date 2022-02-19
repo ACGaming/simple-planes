@@ -14,7 +14,7 @@ public class PlaneMovingSound extends MovingSound {
     private float distance = 0.0F;
 
     public PlaneMovingSound(PlaneEntity planeIn) {
-        super(SimplePlanesSounds.PLANE_LOOP_INSIDE, SoundCategory.AMBIENT);
+        super(SimplePlanesSounds.PLANE_LOOP, SoundCategory.AMBIENT);
         this.plane = planeIn;
         this.repeat = true;
         this.repeatDelay = 0;
@@ -37,7 +37,7 @@ public class PlaneMovingSound extends MovingSound {
 
             if ((double) f >= 0.01D) {
                 this.distance = MathHelper.clamp(this.distance + 0.0025F, 0.0F, 1.0F);
-                this.volume = 0.0F + MathHelper.clamp(f, 0.0F, 1.3F) * 0.7F;
+                this.volume = 0.0F + MathHelper.clamp(f, 0.0F, 1.0F) * 0.7F;
             } else {
                 this.distance = 0.0F;
                 this.volume = 0.0F;

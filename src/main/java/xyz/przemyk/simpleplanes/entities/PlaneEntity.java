@@ -419,8 +419,8 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                 playSound(SimplePlanesSounds.PLANE_START, 0.05F, 1.0F);
                 started = true;
             }
-            if (poweredTicks % 50 == 0 && this.getMotion().length() < 0.1D) {
-                playSound(SimplePlanesSounds.PLANE_LOOP, 0.05F, 1.0F);
+            if (poweredTicks % 20 == 0 && this.getMotion().length() < 0.1D) {
+                playSound(SimplePlanesSounds.PLANE_LOOP, 0.5F, 1.0F);
             }
             ++poweredTicks;
         } else {
