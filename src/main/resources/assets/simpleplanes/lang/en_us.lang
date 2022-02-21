@@ -19,8 +19,9 @@ death.attack.plane_crash=%1$s died in a plane crash
 block.charger_block.name=FE Charging Station
 block.fueling_block.name=Plane Fueling Station
 
-item.furnace_engine.name=Coal Engine
 item.junk_engine.name=Junk Engine
+item.furnace_engine.name=Coal Engine
+item.lava_engine.name=Lava Engine
 item.propeller.name=Propeller
 item.sprayer.name=Sprayer
 item.booster.name=Rocket Booster

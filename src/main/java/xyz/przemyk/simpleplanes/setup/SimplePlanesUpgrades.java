@@ -14,6 +14,7 @@ import xyz.przemyk.simpleplanes.upgrades.banner.BannerUpgradeType;
 import xyz.przemyk.simpleplanes.upgrades.dragon.DragonUpgrade;
 import xyz.przemyk.simpleplanes.upgrades.energy.CoalEngine;
 import xyz.przemyk.simpleplanes.upgrades.energy.JunkEngine;
+import xyz.przemyk.simpleplanes.upgrades.energy.LavaEngine;
 import xyz.przemyk.simpleplanes.upgrades.floating.FloatingUpgrade;
 import xyz.przemyk.simpleplanes.upgrades.folding.FoldingUpgrade;
 import xyz.przemyk.simpleplanes.upgrades.heal.HealUpgrade;
@@ -62,7 +63,6 @@ public class SimplePlanesUpgrades {
         }
     });
 
-
     public static final UpgradeType TNT = register("tnt", () -> new UpgradeType(Item.getItemFromBlock(Blocks.TNT), TNTUpgrade::new, true));
     public static final UpgradeType HEAL = register("heal", () -> new UpgradeType(SimplePlanesItems.HEALING, HealUpgrade::new));
     public static final UpgradeType FLOATING = register("floating", () -> new UpgradeType(SimplePlanesItems.FLOATY_BEDDING, FloatingUpgrade::new) {
@@ -101,13 +101,14 @@ public class SimplePlanesUpgrades {
         }
     });
     public static final UpgradeType BANNER = register("banner", BannerUpgradeType::new);
-    //    public static final UpgradeType PAINT = register("paint", PaintUpgradeType::new);
-//    public static final UpgradeType CLOUD = register("cloud", () -> new UpgradeType(SimplePlanesItems.CLOUD, CloudUpgrade::new));
+    //public static final UpgradeType PAINT = register("paint", PaintUpgradeType::new);
+    //public static final UpgradeType CLOUD = register("cloud", () -> new UpgradeType(SimplePlanesItems.CLOUD, CloudUpgrade::new));
+
     //engines
-    public static final UpgradeType COAL_ENGINE = register("coal_engine", () -> new UpgradeType(SimplePlanesItems.FURNACE_ENGINE, CoalEngine::new));
-    public static final UpgradeType SMOKER_ENGINE = register("smoker_engine", () -> new UpgradeType(SimplePlanesItems.JUNK_ENGINE, JunkEngine::new));
-//    public static final UpgradeType POWER_CELL = register("power_cell", () -> new UpgradeType(Items.REDSTONE_LAMP, PowerCell::new));
-//    public static final UpgradeType LAVA_ENGINE = register("lava_engine", () -> new UpgradeType(Items.BLAST_FURNACE, LavaEngine::new));
+    public static final UpgradeType JUNK_ENGINE = register("junk_engine", () -> new UpgradeType(SimplePlanesItems.JUNK_ENGINE, JunkEngine::new));
+    public static final UpgradeType COAL_ENGINE = register("coal_engine", () -> new UpgradeType(SimplePlanesItems.COAL_ENGINE, CoalEngine::new));
+    public static final UpgradeType LAVA_ENGINE = register("lava_engine", () -> new UpgradeType(SimplePlanesItems.LAVA_ENGINE, LavaEngine::new));
+    //public static final UpgradeType POWER_CELL = register("power_cell", () -> new UpgradeType(Items.REDSTONE_LAMP, PowerCell::new));
 
     //storage
     public static final UpgradeType CHEST = register("chest", () -> new UpgradeType(Item.getItemFromBlock(Blocks.CHEST), ChestUpgrade::new, true));

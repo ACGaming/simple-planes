@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "CFC",
+    "RRR"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotWroughtIron"
+    },
+    "C": {
+      "item": "tfc:crucible"
+    },
+    "F": {
+      "item": "simpleplanes:furnace_engine"
+    },
+    "R": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    }
+  },
+  "result": {
+    "item": "simpleplanes:lava_engine"
+  }
+}

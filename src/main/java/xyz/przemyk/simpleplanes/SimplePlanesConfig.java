@@ -12,6 +12,10 @@ public class SimplePlanesConfig {
     @Config.Comment("Easier flight mode, disables extreme movements")
     public static boolean EASY_FLIGHT = false;
 
+    @Config.Name("Turn threshold")
+    @Config.Comment("For controllers, a threshold for the joystick movement of the plane")
+    public static int TURN_THRESHOLD = 20;
+
     @Config.Name("Plane crash")
     @Config.Comment("Can planes crash?")
     public static boolean PLANE_CRASH = true;
@@ -28,16 +32,17 @@ public class SimplePlanesConfig {
     @Config.Comment("Ticks of regular flying per coal")
     public static int FLY_TICKS_PER_COAL = 300;
 
-    @Config.Name("Turn threshold")
-    @Config.Comment("For controllers, a threshold for the joystick movement of the plane")
-    public static int TURN_THRESHOLD = 20;
+    @Config.Name("Lava max fuel")
+    @Config.Comment("Max fuel value for lava engines")
+    public static int LAVA_MAX_FUEL = 20000;
+
+    @Config.Name("Fly ticks per lava")
+    @Config.Comment("Ticks of regular flying per bucket of lava")
+    public static int FLY_TICKS_PER_LAVA = 2000;
 
     //public static int ENERGY_FLY_TICKS = 5;
     //public static int ENERGY_COST = 600;
     //public static int ENERGY_MAX_FUEL;
-    //public static int LAVA_FLY_TICKS = 2000;
-    //public static int LAVA_COST = 1000;
-    //public static int LAVA_MAX_FUEL = 20000;
 
     @Mod.EventBusSubscriber(modid = SimplePlanesMod.MODID)
     public static class EventHandler {

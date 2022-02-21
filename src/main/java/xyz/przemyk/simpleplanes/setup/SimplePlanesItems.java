@@ -20,7 +20,6 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = SimplePlanesMod.MODID)
 public class SimplePlanesItems {
-
     public static final ArrayList<Item> ITEMS = new ArrayList<>();
 
     @SubscribeEvent
@@ -55,8 +54,9 @@ public class SimplePlanesItems {
     };
 
     public static final Item PROPELLER = register("propeller", new Item());
-    public static final Item FURNACE_ENGINE = register("furnace_engine", new Item());
     public static final Item JUNK_ENGINE = register("junk_engine", new Item());
+    public static final Item COAL_ENGINE = register("furnace_engine", new Item());
+    public static final Item LAVA_ENGINE = register("lava_engine", new Item());
     public static final Item SPRAYER = register("sprayer", new InformationItem(new TextComponentTranslation("description.simpleplanes.sprayer")));
     public static final Item BOOSTER = register("booster", new InformationItem(new TextComponentTranslation("description.simpleplanes.booster")));
     public static final Item FLOATY_BEDDING = register("floaty_bedding", new InformationItem(new TextComponentTranslation("description.simpleplanes.floaty_bedding")));
