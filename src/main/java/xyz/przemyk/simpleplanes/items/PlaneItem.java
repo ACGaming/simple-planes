@@ -15,9 +15,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
-import xyz.przemyk.simpleplanes.setup.SimplePlanesUpgrades;
-import xyz.przemyk.simpleplanes.upgrades.Upgrade;
-import xyz.przemyk.simpleplanes.upgrades.UpgradeType;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -49,7 +46,6 @@ public class PlaneItem extends ItemTFC {
         if (worldIn.isRemote) {
             return new ActionResult<>(EnumActionResult.PASS, itemstack);
         }
-        float f = 1.0F;
         float f1 = playerIn.prevRotationPitch + (playerIn.rotationPitch - playerIn.prevRotationPitch);
         float f2 = playerIn.prevRotationYaw + (playerIn.rotationYaw - playerIn.prevRotationYaw);
         double d0 = playerIn.prevPosX + (playerIn.posX - playerIn.prevPosX);
@@ -62,7 +58,6 @@ public class PlaneItem extends ItemTFC {
         float f6 = MathHelper.sin(-f1 * 0.017453292F);
         float f7 = f4 * f5;
         float f8 = f3 * f5;
-        double d3 = 5.0D;
         Vec3d vec3d1 = vec3d.add((double) f7 * 5.0D, (double) f6 * 5.0D, (double) f8 * 5.0D);
         RayTraceResult raytraceresult = worldIn.rayTraceBlocks(vec3d, vec3d1, true);
         if (raytraceresult == null) {
@@ -88,12 +83,12 @@ public class PlaneItem extends ItemTFC {
         }
 
         PlaneEntity planeEntity = planeSupplier.apply(worldIn);
-        UpgradeType coalEngine = SimplePlanesUpgrades.COAL_ENGINE;
+        /*UpgradeType coalEngine = SimplePlanesUpgrades.COAL_ENGINE;
         Upgrade upgrade = coalEngine.instanceSupplier.apply(planeEntity);
         if (itemstack.getSubCompound("Used") == null) {
             planeEntity.upgrades.put(coalEngine.getRegistryName(), upgrade);
             planeEntity.upgradeChanged();
-        }
+        }*/
         planeEntity.setPosition(raytraceresult.getBlockPos().getX(), raytraceresult.getBlockPos().getY() + 1, raytraceresult.getBlockPos().getZ());
         planeEntity.rotationYaw = playerIn.rotationYaw;
         planeEntity.prevRotationYaw = playerIn.prevRotationYaw;

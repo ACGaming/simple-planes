@@ -12,7 +12,7 @@ import xyz.przemyk.simpleplanes.setup.SimplePlanesItems;
 @Mod(modid = SimplePlanesMod.MODID, name = SimplePlanesMod.MODID, version = SimplePlanesMod.VERSION, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:tfc")
 public class SimplePlanesMod {
     public static final String MODID = "simpleplanes";
-    public static final String VERSION = "3.0.1.8";
+    public static final String VERSION = "3.0.1.9";
     public static final DamageSource DAMAGE_SOURCE_PLANE_CRASH = (new DamageSource("plane_crash")).setDamageBypassesArmor();
     @Mod.Instance
     public static SimplePlanesMod instance;

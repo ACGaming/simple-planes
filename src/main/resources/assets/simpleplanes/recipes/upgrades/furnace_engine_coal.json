@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "III",
-    "WFW",
+    "CFC",
     "RRR"
   ],
   "key": {
@@ -10,12 +10,12 @@
       "type": "forge:ore_dict",
       "ore": "ingotWroughtIron"
     },
-    "W": {
+    "C": {
       "type": "forge:ore_dict",
-      "ore": "plankWood"
+      "ore": "gemCoal"
     },
     "F": {
-      "item": "tfc:blast_furnace"
+      "item": "simpleplanes:junk_engine"
     },
     "R": {
       "type": "forge:ore_dict",
@@ -23,6 +23,6 @@
     }
   },
   "result": {
-    "item": "simpleplanes:junk_engine"
+    "item": "simpleplanes:furnace_engine"
   }
 }

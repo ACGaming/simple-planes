@@ -9,7 +9,7 @@
   "group": "simpleplanes:plane",
   "pattern": [
     " WF",
-    "PEB",
+    "P B",
     " W "
   ],
   "key": {
@@ -22,9 +22,6 @@
     },
     "B": {
       "item": "tfc:wood/boat/ash"
-    },
-    "E": {
-      "item": "simpleplanes:furnace_engine"
     },
     "P": {
       "item": "simpleplanes:propeller"

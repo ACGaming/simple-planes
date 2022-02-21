@@ -9,7 +9,7 @@
   "group": "simpleplanes:helicopter",
   "pattern": [
     "iIi",
-    "IFO",
+    "I O",
     "OTT"
   ],
   "key": {
@@ -18,9 +18,6 @@
     },
     "I": {
       "item": "simpleplanes:propeller"
-    },
-    "F": {
-      "item": "simpleplanes:furnace_engine"
     },
     "O": {
       "item": "tfc:stairs/wood/acacia"

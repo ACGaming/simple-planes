@@ -25,7 +25,10 @@ public class JunkEngine extends CoalEngine {
     public boolean onItemRightClick(EntityPlayer player, World world, EnumHand hand, ItemStack itemStack) {
         if (!player.world.isRemote && planeEntity.getFuel() < SimplePlanesConfig.COAL_MAX_FUEL) {
             int burnTime = TileEntityFurnace.getItemBurnTime(itemStack);
-            if (!OreDictionaryHelper.doesStackMatchOre(itemStack, "gemCoal") && !OreDictionaryHelper.doesStackMatchOre(itemStack, "charcoal") && burnTime > 0) {
+            if (!OreDictionaryHelper.doesStackMatchOre(itemStack, "logWood")
+                    && !OreDictionaryHelper.doesStackMatchOre(itemStack, "gemCoal")
+                    && !OreDictionaryHelper.doesStackMatchOre(itemStack, "charcoal")
+                    && burnTime > 0) {
                 int fuel = (int) ((burnTime / 1600f) * SimplePlanesConfig.FLY_TICKS_PER_COAL);
                 planeEntity.addFuelMaxed(fuel);
                 if (!player.isCreative()) {

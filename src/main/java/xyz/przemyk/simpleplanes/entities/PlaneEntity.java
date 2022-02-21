@@ -429,13 +429,11 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         }
 
         if (world.isRemote && !canPassengerSteer()) {
-
             tickLerp();
             this.setMotion(Vec3d.ZERO);
             tickDeltaRotation(getQ_Client());
             tickUpgrades();
             recalculateSize();
-
             return;
         }
         this.markVelocityChanged();
@@ -446,7 +444,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             vars.gravity = 0;
             vars.max_lift = 0;
             vars.push = 0.00f;
-
             vars.passive_engine_push = 0;
         }
 
@@ -481,7 +478,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             setFuel(fuel);
         }
 
-        //motion and rotetion interpulation + lift.
+        //motion and rotation interpolation + lift.
         if (getMotion().length() > 0.05) {
             q = tickRotateMotion(vars, q, getMotion());
         }
@@ -514,10 +511,10 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         if (oldMotion.length() < l && getMotion().length() < l && groundTicks > -50) {
             this.setMotion(Vec3d.ZERO);
         }
-//        this.updateRocking();
-        // ths code is for motion to work correctly, copied from ItemEntity, maybe there is some better solution but idk
+        //this.updateRocking();
+        //this code is for motion to work correctly, copied from ItemEntity, maybe there is some better solution but idk
         recalculateSize();
-//        recenterBoundingBox();
+        //recenterBoundingBox();
         if (!this.onGround || horizontalMag(this.getMotion()) > (double) 1.0E-5F || (this.ticksExisted + this.getEntityId()) % 4 == 0) {
             double speed_before = Math.sqrt(horizontalMag(this.getMotion()));
             boolean onGroundOld = this.onGround;
@@ -535,7 +532,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                     crash(f2);
                 }
             }
-
         }
         if (isPowered() && rand.nextInt(vars.passengerSprinting ? 2 : 4) == 0 && !world.isRemote) {
             spawnSmokeParticles(fuel);
@@ -554,7 +550,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
 
         if (world.isRemote && canPassengerSteer()) {
             setQ_Client(q);
-
             PlaneNetworking.INSTANCE.sendToServer(new PlaneNetworking.QuaternionMSG.MSG(getQ()));
         } else {
 //            if (getPlayer() instanceof ServerEntityPlayer) {
@@ -578,10 +573,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         if (health_timer < 1000 && isPowered()) {
             health_timer++;
         }
-
-
         this.tickLerp();
-
     }
 
     public double horizontalMag(Vec3d motion) {
@@ -609,7 +601,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                 upgradesToRemove.add(upgrade);
             }
         }
-
         for (Upgrade upgrade : upgradesToRemove) {
             upgrades.remove(upgrade.getType().getRegistryName());
         }
@@ -649,13 +640,11 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         rotationPitch = (float) angels1.pitch;
         rotationYaw = (float) angels1.yaw;
         rotationRoll = (float) angels1.roll;
-
         float d = (float) wrapSubtractDegrees(prevRotationYaw, this.rotationYaw);
         if (rotationRoll >= 90 && prevRotationRoll <= 90) {
             d = 0;
         }
         int diff = 3;
-
         deltaRotationTicks = Math.min(10, Math.max((int) Math.abs(deltaRotationLeft) * 5, deltaRotationTicks));
         deltaRotationLeft *= 0.7;
         deltaRotationLeft += d;
@@ -685,7 +674,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                 }
             }
             int r = 15;
-
             if (getOnGround() || isAboveWater()) {
                 turn = moveStrafing > 0 ? yawdiff : moveStrafing == 0 ? 0 : -yawdiff;
                 rotationRoll = roll;
@@ -706,11 +694,10 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                 } else {
                     turn = MathHelper.clamp((180 - roll_old) * vars.yaw_multiplayer, -yawdiff, yawdiff);
                 }
-                if (moveStrafing == 0)
+                if (moveStrafing == 0) {
                     turn = 0;
-
+                }
             }
-
         } else if (moveStrafing == 0) {
             for (int i = 0; i < 360; i += 180) {
                 if (degreesDifferenceAbs(rotationRoll, i) < 80) {
@@ -718,13 +705,11 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                     break;
                 }
             }
-
         } else if (moveStrafing > 0) {
             rotationRoll += f1;
         } else if (moveStrafing < 0) {
             rotationRoll -= f1;
         }
-
         rotationYaw -= turn;
     }
 
@@ -745,24 +730,20 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         if (speed > vars.max_speed) {
             speed = lerp(0.2, speed, vars.max_speed);
         }
-
         if (speed == 0) {
             motion = Vec3d.ZERO;
         }
-        if (motion.length() > 0)
+        if (motion.length() > 0) {
             motion = motion.scale(speed / motion.length());
-
+        }
         Vector3f tickPush = getTickPush(vars);
         Vec3d pushVec = new Vec3d(tickPush.x, tickPush.y, tickPush.z);
         if (pushVec.length() != 0 && motion.length() > 0.1) {
             double dot = normalizedDotProduct(pushVec, motion);
             pushVec = pushVec.scale(MathUtil.clamp(1 - dot * speed / (vars.max_push_speed * (vars.push + 0.05)), 0, 1));
         }
-
         motion = motion.add(pushVec);
-
         motion = motion.add(0, vars.gravity, 0);
-
         this.setMotion(motion);
     }
 
@@ -792,7 +773,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             this.setHealth(this.getHealth() + 1);
             this.not_moving_time = 0;
         }
-
         boolean speeding_up = true;
         if (groundTicks < 0) {
             groundTicks = 5;
@@ -806,14 +786,13 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             pitch /= 2;
         }
         rotationPitch = lerpAngle(0.1f, rotationPitch, pitch);
-
         if (degreesDifferenceAbs(rotationPitch, 0) > 1 && getMotion().length() < 0.1) {
             vars.push = 0;
         }
         if (getMotion().length() < vars.take_off_speed) {
-            //                rotationPitch = lerpAngle(0.2f, rotationPitch, pitch);
+            //rotationPitch = lerpAngle(0.2f, rotationPitch, pitch);
             speeding_up = false;
-            //                push = 0;
+            //push = 0;
         }
         if (vars.moveForward < 0) {
             vars.push = -vars.ground_push;
@@ -840,33 +819,29 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             double factor = (getOnGround() || isAboveWater()) ? 0.98 : 0.99;
             setMotion(motion.scale(factor));
         }
-
         float d = (float) degreesDifferenceAbs(pitch, rotationPitch);
         if (d > 180) {
             d = d - 180;
         }
-        //            d/=3600;
+        //d/=3600;
         d /= 60;
         d = Math.min(1, d);
         d *= d;
         d = 1 - d;
-        //            speed = getMotion().length()*(d);
+        //speed = getMotion().length()*(d);
         double speed = getMotion().length();
         double lift = Math.min(speed * vars.lift_factor, vars.max_lift) * d;
         double cos_roll = (1 + 4 * Math.max(Math.cos(Math.toRadians(degreesDifferenceAbs(rotationRoll, 0))), 0)) / 5;
         lift *= cos_roll;
         d *= cos_roll;
-
         setMotion(rotationToVector(lerpAngle180(0.1f, yaw, rotationYaw),
                 lerpAngle180(vars.pitch_to_motion * d, pitch, rotationPitch) + lift,
                 speed));
         if (!getOnGround() && !isAboveWater() && motion.length() > 0.1) {
-
             if (degreesDifferenceAbs(pitch, rotationPitch) > 90) {
                 pitch = wrapDegrees(pitch + 180);
             }
             if (Math.abs(rotationPitch) < 85) {
-
                 yaw = getYaw(getMotion());
                 if (degreesDifferenceAbs(yaw, rotationYaw) > 90) {
                     yaw = yaw - 180;
@@ -874,7 +849,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                 Quaternion q1 = toQuaternion(yaw, pitch, rotationRoll);
                 q = lerpQ(vars.motion_to_rotation, q, q1);
             }
-
         }
         return q;
     }
@@ -1016,8 +990,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
 
     /**
      * small data for client sync not for save.
-     *
-     * @return
      */
     @SuppressWarnings("ConstantConditions")
     private NBTTagCompound getUpgradesNBTData() {
@@ -1090,16 +1062,15 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
 
     @Override
     protected void updateFallState(double y, boolean onGroundIn, IBlockState state, BlockPos pos) {
-
         if ((onGroundIn || isAboveWater()) && SimplePlanesConfig.PLANE_CRASH) {
-            //        if (onGroundIn||isAboveWater()) {
+            //if (onGroundIn||isAboveWater()) {
             final double y1 = transformPos(new Vector3f(0, 1, 0)).getY();
             if (y1 < Math.cos(Math.toRadians(getLandingAngle()))) {
                 state.getBlock().onFallenUpon(this.world, pos, this, (float) (getMotion().length() * 5));
             }
             this.fallDistance = 0.0F;
         }
-        //        this.lastYd = this.getMotion().y;
+        //this.lastYd = this.getMotion().y;
     }
 
     protected int getLandingAngle() {
@@ -1158,20 +1129,14 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
      */
     public void applyYawToEntity(Entity entityToUpdate) {
         entityToUpdate.setRotationYawHead(entityToUpdate.getRotationYawHead() + this.deltaRotation);
-
         entityToUpdate.rotationYaw += this.deltaRotation;
-
         entityToUpdate.setRenderYawOffset(this.rotationYaw);
-
         float f = wrapDegrees(entityToUpdate.rotationYaw - this.rotationYaw);
         float f1 = MathHelper.clamp(f, -105.0F, 105.0F);
-
         float perc = deltaRotationTicks > 0 ? 1f / deltaRotationTicks : 1f;
         float diff = (f1 - f) * perc;
-
         entityToUpdate.prevRotationYaw += diff;
         entityToUpdate.rotationYaw += diff;
-
         entityToUpdate.setRotationYawHead(entityToUpdate.rotationYaw);
     }
 
@@ -1182,10 +1147,8 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         if (upgrades.containsKey(SimplePlanesUpgrades.FOLDING.getId())) {
             if (passenger instanceof EntityPlayer) {
                 final EntityPlayer playerEntity = (EntityPlayer) passenger;
-
                 if (!playerEntity.isCreative() && this.getPassengers().size() == 0 && !this.isDead) {
                     ItemStack itemStack = getItemStack();
-
                     playerEntity.addItemStackToInventory(itemStack);
                 }
             }
@@ -1199,8 +1162,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             value.setBoolean("Used", true);
             itemStack.setTagInfo("EntityTag", value);
         }
-
-
         return itemStack;
     }
 
@@ -1212,8 +1173,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         if (this.canPassengerSteer()) {
             this.lerpSteps = 0;
             this.lerpStepsQ = 0;
-
-//            this.setPacketCoordinates(this.getPosX(), this.getPosY(), this.getPosZ());
+            //this.setPacketCoordinates(this.getPosX(), this.getPosY(), this.getPosZ());
             return;
         }
 
@@ -1244,7 +1204,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         this.lerpY = y;
         this.lerpZ = z;
         this.lerpSteps = 10;
-
     }
 
     @Override
@@ -1257,7 +1216,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         this.setPosition(d0, y, d1);
         this.rotationYaw = yaw % 360.0F;
         this.rotationPitch = pitch % 360.0F;
-
         this.prevRotationYaw = this.rotationYaw;
         this.prevRotationPitch = this.rotationPitch;
     }
@@ -1267,7 +1225,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         super.addPassenger(passenger);
         if (this.canPassengerSteer()) {
             this.mountMessage = true;
-
             if (this.lerpSteps > 0) {
                 this.lerpSteps = 0;
                 this.setPositionAndRotation(this.lerpX, this.lerpY, this.lerpZ, this.rotationYaw, this.rotationPitch);
@@ -1303,7 +1260,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             } else {
                 this.rockingIntensity -= 0.1F;
             }
-
             this.rockingIntensity = MathHelper.clamp(this.rockingIntensity, 0.0F, 1.0F);
             this.prevRockingAngle = this.rockingAngle;
             this.rockingAngle = 10.0F * (float) Math.sin(0.5F * (float) this.world.getWorldTime()) * this.rockingIntensity;
@@ -1311,7 +1267,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             if (!this.rocking) {
                 this.setRockingTicks(0);
             }
-
             int k = this.getRockingTicks();
             if (k > 0) {
                 --k;
@@ -1327,7 +1282,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                         this.setMotion(vector3d.x, this.isRiding() ? 2.7D : 0.6D, vector3d.z);
                     }
                 }
-
                 this.rocking = false;
             }
         }
@@ -1371,7 +1325,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
 
     public boolean hasChest() {
         return false;
-//        return this.upgrades.containsKey(SimplePlanesUpgrades.CHEST.getId());
+        //return this.upgrades.containsKey(SimplePlanesUpgrades.CHEST.getId());
     }
 
     public double getCameraDistanceMultiplayer() {
