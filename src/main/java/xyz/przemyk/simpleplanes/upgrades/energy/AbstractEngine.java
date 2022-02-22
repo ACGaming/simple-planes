@@ -39,6 +39,7 @@ public abstract class AbstractEngine extends Upgrade {
                     }
                 }
                 planeEntity.upgradeChanged();
+                planeEntity.setFuel(0);
                 return;
             }
         }
