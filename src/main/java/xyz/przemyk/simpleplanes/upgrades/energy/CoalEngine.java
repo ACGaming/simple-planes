@@ -2,10 +2,12 @@ package xyz.przemyk.simpleplanes.upgrades.energy;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import xyz.przemyk.simpleplanes.SimplePlanesConfig;
 import xyz.przemyk.simpleplanes.SimplePlanesMod;
@@ -31,6 +33,7 @@ public class CoalEngine extends AbstractEngine {
         if (!player.world.isRemote && planeEntity.getFuel() < (SimplePlanesConfig.COAL_MAX_FUEL - SimplePlanesConfig.FLY_TICKS_PER_COAL)) {
             if (OreDictionaryHelper.doesStackMatchOre(itemStack, "gemCoal") || OreDictionaryHelper.doesStackMatchOre(itemStack, "charcoal")) {
                 planeEntity.addFuelMaxed();
+                world.playSound(null, player.getPosition(), SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
                 if (!player.isCreative()) {
                     itemStack.shrink(1);
                 }

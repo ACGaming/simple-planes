@@ -2,10 +2,12 @@ package xyz.przemyk.simpleplanes.upgrades.energy;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -41,11 +43,13 @@ public class LavaEngine extends AbstractEngine {
                     ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(Items.BUCKET));
                 }
                 planeEntity.addFuelMaxed(SimplePlanesConfig.FLY_TICKS_PER_LAVA);
+                world.playSound(null, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
             } else if (bucketCap != null) {
                 FluidStack fluidStack = bucketCap.drain(1000, false);
                 if (fluidStack != null && fluidStack.getFluid() == FluidRegistry.LAVA) {
                     bucketCap.drain(1000, !player.isCreative());
                     planeEntity.addFuelMaxed(SimplePlanesConfig.FLY_TICKS_PER_LAVA);
+                    world.playSound(null, player.getPosition(), SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
                 }
             }
         }

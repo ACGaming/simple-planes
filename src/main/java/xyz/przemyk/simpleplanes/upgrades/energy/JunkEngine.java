@@ -2,11 +2,13 @@ package xyz.przemyk.simpleplanes.upgrades.energy;
 
 import net.dries007.tfc.util.OreDictionaryHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import xyz.przemyk.simpleplanes.SimplePlanesConfig;
@@ -33,6 +35,7 @@ public class JunkEngine extends CoalEngine {
                     && burnTime > 0) {
                 int fuel = (int) ((burnTime / 1600f) * SimplePlanesConfig.FLY_TICKS_PER_COAL);
                 planeEntity.addFuelMaxed(fuel);
+                world.playSound(null, player.getPosition(), SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
                 if (!player.isCreative()) {
                     Item item = itemStack.getItem();
                     itemStack.shrink(1);

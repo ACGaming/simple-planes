@@ -10,6 +10,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -307,6 +308,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         }
         upgrades.put(upgradeType.getRegistryName(), upgrade);
         upgradeChanged();
+        player.getEntityWorld().playSound(null, player.getPosition(), SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1.0F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
     }
 
     @Override
@@ -322,7 +324,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
 
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
-//        this.setRockingTicks(60);
+        //this.setRockingTicks(60);
         this.setTimeSinceHit(20);
         this.setDamageTaken(this.getDamageTaken() + 10 * amount);
 
@@ -339,6 +341,9 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
 
         setHealth(health -= amount);
         this.hurtTime = 10;
+
+        world.playSound(null, this.getPosition(), SoundEvents.ENTITY_ZOMBIE_BREAK_DOOR_WOOD, SoundCategory.BLOCKS, 1.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
+
         boolean is_player = source.getTrueSource() instanceof EntityPlayer;
         boolean creative_player = is_player && ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;
         if (creative_player || (is_player && this.getDamageTaken() > 30.0F) || health <= 0) {
