@@ -37,7 +37,7 @@ public class PlaneMovingSound extends MovingSound {
 
             if ((double) f >= 0.01D) {
                 this.distance = MathHelper.clamp(this.distance + 0.0025F, 0.0F, 1.0F);
-                this.volume = 0.0F + MathHelper.clamp(f, 0.0F, 1.0F) * 0.7F;
+                this.volume = 0.0F + MathHelper.clamp(f, 0.0F, 1.0F) * 0.4F;
             } else {
                 this.distance = 0.0F;
                 this.volume = 0.0F;
