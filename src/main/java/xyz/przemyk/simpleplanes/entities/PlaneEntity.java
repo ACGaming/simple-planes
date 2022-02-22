@@ -239,7 +239,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
     }
 
     public boolean isPowered() {
-        return dataManager.get(FUEL) > 0 || isCreative();
+        return this.getControllingPassenger() != null && (dataManager.get(FUEL) > 0 || isCreative());
     }
 
 //    public Vector2f getHorizontalFrontPos() {
@@ -1126,7 +1126,6 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
         if (this.isPassenger(passenger) && !b) {
             this.applyYawToEntity(passenger);
         }
-
     }
 
     /**
@@ -1155,6 +1154,7 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
                 if (!playerEntity.isCreative() && this.getPassengers().size() == 0 && !this.isDead) {
                     ItemStack itemStack = getItemStack();
                     playerEntity.addItemStackToInventory(itemStack);
+                    this.setDead();
                 }
             }
         }
