@@ -51,8 +51,6 @@ public class ChestUpgrade extends Upgrade implements IInventoryChangedListener, 
             }
         };
         tileEntity = new TileEntityChest() {
-
-
 //            @Override
 //            public BlockState getBlockState() {
 //                return Blocks.CHEST.getDefaultState();

@@ -1,5 +1,6 @@
 package xyz.przemyk.simpleplanes.upgrades.floating;
 
+import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -27,7 +28,9 @@ public class FloatingUpgrade extends Upgrade {
             double f = 1;
             double y = MathUtil.lerp(1, motion.y, Math.max(motion.y, 0));
             planeEntity.setMotion(motion.x * f, y, motion.z * f);
-            if (planeEntity.world.getBlockState(new BlockPos(planeEntity.getPositionVector().add(0, 0.5, 0))).getBlock() == Blocks.WATER) {
+            if (planeEntity.world.getBlockState(new BlockPos(planeEntity.getPositionVector().add(0, 0.5, 0))).getBlock() == Blocks.WATER
+                    || planeEntity.world.getBlockState(new BlockPos(planeEntity.getPositionVector().add(0, 0.5, 0))).getBlock() == FluidsTFC.FRESH_WATER.get().getBlock()
+                    || planeEntity.world.getBlockState(new BlockPos(planeEntity.getPositionVector().add(0, 0.5, 0))).getBlock() == FluidsTFC.SALT_WATER.get().getBlock()) {
                 planeEntity.setMotion(planeEntity.getMotion().add(0, 0.04, 0));
             }
         }

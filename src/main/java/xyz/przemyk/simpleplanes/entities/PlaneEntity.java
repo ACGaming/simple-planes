@@ -1,6 +1,7 @@
 package xyz.przemyk.simpleplanes.entities;
 
 import io.netty.buffer.ByteBuf;
+import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -1108,7 +1109,9 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
     }
 
     public boolean isAboveWater() {
-        return this.world.getBlockState(new BlockPos(this.getPositionVector().add(0, 0.4, 0))).getBlock() == Blocks.WATER;
+        return this.world.getBlockState(new BlockPos(this.getPositionVector().add(0, 0.4, 0))).getBlock() == Blocks.WATER
+                || this.world.getBlockState(new BlockPos(this.getPositionVector().add(0, 0.4, 0))).getBlock() == FluidsTFC.FRESH_WATER.get().getBlock()
+                || this.world.getBlockState(new BlockPos(this.getPositionVector().add(0, 0.4, 0))).getBlock() == FluidsTFC.SALT_WATER.get().getBlock();
     }
 
     public boolean canAddUpgrade(UpgradeType upgradeType) {

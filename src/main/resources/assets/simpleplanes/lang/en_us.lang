@@ -4,20 +4,15 @@ key.plane_boost.desc.name=Plane Boost Key
 
 description.simpleplanes.sprayer=Use water bottles or potions to make crops grow faster and give effect to entities.
 description.simpleplanes.booster=Use gunpowder to boost your plane. Can only be applied to small planes.
-description.simpleplanes.floaty_bedding=Makes plane float on water.
+description.simpleplanes.floaty_bedding=Makes planes float on water.
 description.simpleplanes.shooter=Shoots fireworks, fire charges and arrows.
-description.simpleplanes.folding=Plane returns to players inventory upon departure.
-description.simpleplanes.healing=Fix up your plane quicker.
-description.simpleplanes.mana_upgrade.name=Turns your plane into living wood plane.
-description.simpleplanes.name=Right Click with a pickaxe above cloud level to get.
+description.simpleplanes.folding=Plane returns to players inventory upon dismounting.
+description.simpleplanes.healing=Fix up planes quicker.
 
 plane.onboard=Press %2$s to boost | Press %1$s to dismount
 helicopter.onboard=Press %2$s to take off | Press %1$s to dismount
 
 death.attack.plane_crash=%1$s died in a plane crash
-
-block.charger_block.name=FE Charging Station
-block.fueling_block.name=Plane Fueling Station
 
 item.junk_engine.name=Junk Engine
 item.furnace_engine.name=Coal Engine
@@ -29,7 +24,6 @@ item.floaty_bedding.name=Floaty Bedding
 item.shooter.name=Shooter
 item.folding.name=Folding
 item.healing.name=Plane Quick Fix Kit
-item.cloud.name=Cloud
 
 item.tfc_acacia_plane.name=Acacia Plane
 item.tfc_acacia_large_plane.name=Large Acacia Plane
