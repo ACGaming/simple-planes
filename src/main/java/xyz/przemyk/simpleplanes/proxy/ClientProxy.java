@@ -1,5 +1,6 @@
 package xyz.przemyk.simpleplanes.proxy;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -9,9 +10,14 @@ import xyz.przemyk.simpleplanes.entities.LargePlaneEntity;
 import xyz.przemyk.simpleplanes.entities.MegaPlaneEntity;
 import xyz.przemyk.simpleplanes.entities.PlaneEntity;
 import xyz.przemyk.simpleplanes.render.*;
+import xyz.przemyk.simpleplanes.setup.PlaneMovingSound;
 
 public class ClientProxy extends CommonProxy {
     public static KeyBinding keyBind;
+
+    public static void playEngineSound(PlaneEntity plane) {
+        Minecraft.getMinecraft().getSoundHandler().playSound(new PlaneMovingSound(plane));
+    }
 
     @Override
     public void init() {

@@ -3,7 +3,6 @@ package xyz.przemyk.simpleplanes.entities;
 import io.netty.buffer.ByteBuf;
 import net.dries007.tfc.objects.fluids.FluidsTFC;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
@@ -31,6 +30,7 @@ import xyz.przemyk.simpleplanes.handler.PlaneNetworking;
 import xyz.przemyk.simpleplanes.math.MathUtil;
 import xyz.przemyk.simpleplanes.math.Quaternion;
 import xyz.przemyk.simpleplanes.math.Vector3f;
+import xyz.przemyk.simpleplanes.proxy.ClientProxy;
 import xyz.przemyk.simpleplanes.setup.*;
 import xyz.przemyk.simpleplanes.upgrades.Upgrade;
 import xyz.przemyk.simpleplanes.upgrades.UpgradeType;
@@ -266,9 +266,11 @@ public class PlaneEntity extends Entity implements IEntityAdditionalSpawnData {
             }
             return true;
         }
+        if (this.world.isRemote) {
+            ClientProxy.playEngineSound(this);
+        }
         if (!this.world.isRemote) {
             rightClickUpgrades(player, hand, itemStack);
-            Minecraft.getMinecraft().getSoundHandler().playSound(new PlaneMovingSound(this));
             return player.startRiding(this);
         } else {
             return player.getLowestRidingEntity() == this.getLowestRidingEntity();
